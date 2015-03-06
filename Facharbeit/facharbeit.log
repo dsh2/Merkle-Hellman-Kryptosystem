@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.14)  6 MAR 2015 22:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.14)  7 MAR 2015 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -467,57 +467,57 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout3 = `facharbeit.toc'.
 
  [1]
-Overfull \hbox (3.28044pt too wide) in paragraph at lines 37--43
+Overfull \hbox (3.28044pt too wide) in paragraph at lines 37--38
 \OT1/cmr/m/n/12 besch[]aftigt sich mit asym-me-tri-schen Ver-schl[]usse-lungs-v
 er-fah-ren am Bei-spiel vom Merkle-
  []
 
 [2]
-Overfull \hbox (9.3276pt too wide) in paragraph at lines 46--47
+Overfull \hbox (9.3276pt too wide) in paragraph at lines 41--42
 \OT1/cmr/m/n/12 In die-sem Ka-pi-tel wer-den die Ma-the-ma-ti-schen Grund-la-ge
 n er-kl[]art die man zum Verst[]and-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--56
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 84.
  [5] [6]
 <symm_shema.png, id=36, 2007.5pt x 1273.75874pt>
 File: symm_shema.png Graphic file (type png)
  <use symm_shema.png>
-Package pdftex.def Info: symm_shema.png used on input line 125.
+Package pdftex.def Info: symm_shema.png used on input line 109.
 (pdftex.def)             Requested size: 401.49289pt x 254.74724pt.
  [7 <./symm_shema.png>] <asymm_shema.png, id=42, 2007.5pt x 1273.75874pt>
 File: asymm_shema.png Graphic file (type png)
 
 <use asymm_shema.png>
-Package pdftex.def Info: asymm_shema.png used on input line 143.
+Package pdftex.def Info: asymm_shema.png used on input line 126.
 (pdftex.def)             Requested size: 401.49289pt x 254.74724pt.
  [8] [9 <./asymm_shema.png>]
 <rucksackproblem.png, id=50, 476.78125pt x 370.38374pt>
 File: rucksackproblem.png Graphic file (type png)
 
 <use rucksackproblem.png>
-Package pdftex.def Info: rucksackproblem.png used on input line 168.
+Package pdftex.def Info: rucksackproblem.png used on input line 144.
 (pdftex.def)             Requested size: 333.74458pt x 259.26685pt.
  [10 <./rucksackproblem.png (PNG copy)>] [11] [12]
 [13] [14] (./facharbeit.bbl) [15] (./facharbeit.aux) ) 
@@ -528,7 +528,7 @@ Here is how much of TeX's memory you used:
  6354 multiletter control sequences out of 15000+600000
  13564 words of font info for 53 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,8n,26p,1281b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,26p,1880b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/
@@ -543,7 +543,7 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on facharbeit.pdf (16 pages, 473409 bytes).
+Output written on facharbeit.pdf (16 pages, 473378 bytes).
 PDF statistics:
  118 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream
