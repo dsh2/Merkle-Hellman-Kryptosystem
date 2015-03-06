@@ -1,0 +1,27 @@
+==================
+1. Inhalte(Struktur)
+2. Referenzen
+3. Bildverzeichnis
+4. Einleitung
+5. Rechtschreibung
+==================
+
+Anwendungsbereiche
+Sicherheit verfahren
+
+Formeln kursiv
+
+===============
+   BEISPIEL
+===============
+Sum of private knapsack: 5759
+
+m: 16511, n: 11111, m_i: 584
+Privater Schlüssel: {44,45,90,180,360,720,1440,2880}
+Öffentlicher Schlüssel: {10065,4665,9330,2149,4298,8596,681,1362}
+Klartext: hallo({01101000, 01100001, 01101100, 01101100, 01101111})
+Verschlüsseln...
+Geheimtext: {18293,15357,26889,26889,28932}
+Entschlüsseln...
+{495,3015,1215,1215,5535}
+Klartext: hallo

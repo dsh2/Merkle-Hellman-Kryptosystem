@@ -1,0 +1,58 @@
+\begin{thebibliography}{1}
+
+\bibitem{oneway_lukas}
+Lukas Dölle.
+\newblock Einwegfunktionen {V}ariationen und {B}eispiele.
+\newblock
+  \url{http://www2.informatik.hu-berlin.de/Forschung_Lehre/algorithmenII/Lehre/WS2002-2003/Perlen/Variationen.pdf}.
+\newblock (27.2.2015).
+
+\bibitem{asymm_gesch}
+Philip Hauer.
+\newblock Asymmetrische {V}erschlüsselung. {D}as {V}erfahren sowie die {V}or-
+  und {N}achteile.
+\newblock
+  \url{http://www.philipphauer.de/info/info/asymmetrische-verschluesselung/}.
+\newblock (23.2.2015).
+
+\bibitem{fa_asymm_hendrik}
+Hendrik Kahl.
+\newblock {A}symmetrische {V}erschlüsselungsverfahren und ihre {A}nwendung an
+  ausgewählten {B}eispielen.
+\newblock
+  \url{http://b-cw-waos.logoip.de:8079/fachbereiche/mathematik/msa-und-abitur/assets/facharbeit-hendrik-kahl.pdf}.
+\newblock (25.2.2015).
+
+\bibitem{delfs_knebl}
+Hans Delfs{,}~Helmut Knebl.
+\newblock {\em Introduction to Cryptography}.
+\newblock Springer-Verlag, 2002.
+
+\bibitem{merklehellman_neer}
+Neeraj Kumar.
+\newblock Merkle-{H}ellman {K}napsack {C}ryptosystem.
+\newblock
+  \url{http://www.neerajkumar.net/blog/2012/11/21/merkle-hellman-knapsack-cryptosystem/}.
+\newblock (1.3.2015).
+
+\bibitem{schlusselverteilung}
+Marc Michele.
+\newblock Schlüsselverteilung.
+\newblock \url{http://www.pgp-tutorial.de/node8.html}.
+\newblock (24.2.2015).
+
+\bibitem{martin_bio}
+Computer~History Museum.
+\newblock Martin {H}ellman.
+\newblock
+  \url{http://www.computerhistory.org/fellowawards/hall/bios/Martin,Hellman/}.
+\newblock (24.2.2015).
+
+\bibitem{ralph_bio}
+Computer~History Museum.
+\newblock Ralph {M}erkle.
+\newblock
+  \url{http://www.computerhistory.org/fellowawards/hall/bios/Ralph,Merkle/}.
+\newblock (24.2.2015).
+
+\end{thebibliography}
