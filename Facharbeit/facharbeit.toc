@@ -17,12 +17,13 @@
 \contentsline {subsection}{\numberline {4.4}Sicherheit}{7}
 \contentsline {section}{\numberline {5}Asymetrische Verschl\IeC {\"u}sselung}{8}
 \contentsline {subsection}{\numberline {5.1}Prinzip asymmetrischer Veschl\IeC {\"u}sselung}{8}
-\contentsline {subsection}{\numberline {5.2}Sicherheit}{9}
+\contentsline {subsection}{\numberline {5.2}Digitale Signaturen}{9}
+\contentsline {subsection}{\numberline {5.3}Sicherheit}{9}
 \contentsline {section}{\numberline {6}Merkle-Hellman Kryptosystem}{9}
-\contentsline {subsection}{\numberline {6.1}\IeC {\"U}ber die Erfinder}{9}
+\contentsline {subsection}{\numberline {6.1}\IeC {\"U}ber die Erfinder}{10}
 \contentsline {subsection}{\numberline {6.2}Rucksackproblem}{10}
 \contentsline {subsection}{\numberline {6.3}Schl\IeC {\"u}sselerzeugung}{11}
 \contentsline {subsection}{\numberline {6.4}Verschl\IeC {\"u}sselung}{11}
 \contentsline {subsection}{\numberline {6.5}Entschl\IeC {\"u}sselung}{12}
-\contentsline {subsection}{\numberline {6.6}Sicherheit}{12}
+\contentsline {subsection}{\numberline {6.6}Sicherheit}{13}
 \contentsline {section}{\numberline {7}Fazit}{14}

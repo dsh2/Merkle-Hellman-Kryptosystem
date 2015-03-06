@@ -19,7 +19,7 @@
 Niklas Gögge\\
 Viktoriaschule Aachen\\
 Kurs: Mathematik\\
-Fachlehrerin: Kleines\\
+Fachlehrerin: Frau Kleines\\
 Schuljahr 2014/15
 }
 
@@ -34,11 +34,10 @@ Schuljahr 2014/15
 \newpage
 
 \section{Einleitung}
-Diese Facharbeit ensteht im Rahmen einer Schulaufgabe im Fach Mathematik und beschäftigt sich mit asymmetrischen Verschlüsselungsverfahren am Beispiel vom Merkle-Hellman Kryptosystem. Ich habe dieses Thema gewählt da ich sehr mathematisch und informationstechnisch interessiert bin und mein späteres Studium wahrscheinlich auch in eine dieser Richtungen verlaufen wird. Des Weiteren sind Sicherheit und Geheimhaltung im heutigen Medienzeitalter ein sehr interessantes und vor allem wichtiges Thema, da ein sehr großer Teil der Kommunikation über Telefone beziehungsweise über das Internet läuft und Sicherheit an manchen Stellen sehr wichtig ist. \newline Zu Beginn der Arbeit werden die Mathematischen Grundlagen, welche für diese Arbeit gebraucht werden, erläutert. Dazu gehört: Restrechnung, Der euklidische Algorithmus und der erweiterte euklidische Algorithmus und Einwegfunktionen mit und ohne Falltür. Im darauf vollgenden Kapitel wird über Verschlüsselung im Allgemeinen, ihre Ziele und Anwendungsbereiche geredet. Die zwei darauf folgenden Kapitel befassen sich mit symmetrischer und asymmetrischer Verschlüsselung. Beide Prinzipien werden erläutert und die Sicherheit und Anwendungsbereiche beider Arten werden beschrieben. Das sechste Kapitel dreht sich um das Merkle-Hellman Kryptosystem welches als Beispiel für ein asymmetrisches Verschlüsselungsverfahren erläutert wird. Dazu gehört eine kurze Biographie der Erfinder, das Rucksackproblem, das Verfahren an sich, also Schlüsselerzeugung und Ver- und Entschlüsselung und es wird erklärt warum das Verfahren nicht sicher ist. Zum Schluss der Arbeit werde ich noch ein persönliches Fazit aus meiner Bearbeitung des Themas ziehen.\newline Im Rahmen dieser Arbeit werde Ich zusätzlich das Merkle-Hellman Kryptosystem selber in der Programmiersprache Java Programmieren.
+Diese Facharbeit entsteht im Rahmen einer Schulaufgabe im Fach Mathematik und beschäftigt sich mit asymmetrischen Verschlüsselungsverfahren am Beispiel vom Merkle-Hellman Kryptosystem. Ich habe dieses Thema gewählt da ich sehr mathematisch und informationstechnisch interessiert bin und mein späteres Studium wahrscheinlich auch in eine dieser Richtungen verlaufen wird. Des Weiteren sind Sicherheit und Geheimhaltung im heutigen Medienzeitalter ein sehr interessantes und vor allem wichtiges Thema, da ein sehr großer Teil der Kommunikation über Telefone beziehungsweise über das Internet läuft und Sicherheit an manchen Stellen sehr wichtig ist. \newline Im ersten Kapitel werden die Mathematischen Grundlagen, die für das Verständnis der Arbeit gebraucht werden, erläutert. Dazu gehören: Restrechnung, der Euklidische Algorithmus, der erweiterte Euklidische Algorithmus und Einwegfunktionen mit und ohne Falltür, an einem Beispiel. Das darauf folgende Kapitel beschäftigt sich allgemein mit Verschlüsselung, ihre Ziele, Verschlüsselungsprotokolle und ihre Anwendung. Die zwei darauf folgenden Kapitel informieren über symmetrische und asymmetrische Verschlüsselung, ihre Prinzipien und Sicherheit. Das vorletzte Kapitel erläutert, als Beispiel für ein asymmetrisches Verfahren, das Merkle-Hellman-Kryptosystem. Dazu gehören: eine kurz Biographie der Erfinder, das Rucksackproblem, das Verfahren an sich(Schlüsselerzeugung, Verschlüsselung, Entschlüsselung) und die Sicherheit des Verfahrens, da es schon seit 1982 als nicht Sicher gilt. Zum Schluss werde ich noch ein persönliches Fazit aus meiner Bearbeitung dieser Arbeit ziehen. Außerdem werde ich im Rahmen dieser Arbeit das Merkle-Hellman-Kryptosystem in der Programmiersprache Java selber programmieren.
 \newpage 
 
 \section{Mathematische Grundlagen}
-In diesem Kapitel werden die Mathematischen Grundlagen erklärt die man zum Verständnis dieser Arbeit benötigt.
 
 \subsection{Restrechnung}
 Die Restrechnung ist den meisten vermutlich noch aus der Grundschule bekannt, denn bevor Rationale zahlen eingeführt wurden, war zum Beispiel: 123 geteilt durch 10 nicht etwa 12.3 sondern das Ergebnis lautete: 12 Rest 3. Allgemein ausgedrückt heißt es das bei einer Division zweier Zahlen a,b, mit $b \neq 0$, $a,b \in \mathbb{Z}$ ein Rest r entstehen kann. Eine mögliche Schreibweise dafür wäre: \newline
@@ -125,6 +124,10 @@ Asymmetrische Verschlüsselung ist das Gegenstück zu symmetrischer Verschlüsse
 \begin{center}
 \includegraphics[scale=0.2]{asymm_shema.png} %ref link wikipedia
 \end{center}
+\subsection{Digitale Signaturen}
+Auch wenn das Merkle-Hellman-Kryptosystem keine Signaturen benutzt, sind sie doch ein wichtiger Bestandteil der asymmetrischen Verschlüsselung.
+Signaturen werden mithilfe der Einwegfunktion $f(x)$, welche die Ver- /Entschlüsselungsalgorithmen benutzten, erstellt. Die Einwegfunktion muss allerdings eine zusätzliche Eigenschaft haben, sie muss bijektiv sein, das heißt, dass es für jeden $x$ Wert, nur genau einen $y$ Wert gibt und für jeden $y$ Wert, genau einen $x$ Wert.
+Wenn jetzt Partei A eine Nachricht $n$ an Partei B schicken will, kehrt Partei A $f(x)$ mit ihrem privaten Schlüssel um und signiert dann mit $f^{-1}(x)$ die Nachricht und erhält die Signatur $s = f^{-1}(m)$. Diese wird dann an Partei B geschickt und die kann dann mit $f(s) = n$ und Partei As öffentlichem Schlüssel, die erhaltene Nachricht verifizieren und weiß nun, dass Partei A die Nachricht geschickt haben muss, da nur sie $f^{-1}(x)$ berechnen konnte.
 \subsection{Sicherheit} % Daniel
 Asymmetrsiche Verschlüsselungsverfahren haben das Problem der Schlüsselverteilung nicht, weshalb sie gegen über symmetrsichen Verfahren in dem Punkt sicherer sind. Des weiteren gibt es bis jetzt keine effizienten Algorithmen um die beschriebenen Einwegfunktionen umzukehren ohne die entsprechenden Geheiminformationen zu kennen.
 
