@@ -86,10 +86,21 @@ Einwegfunktionen mit Falltür sind Einwegfunktionen mit einer zusätzlichen Eige
 Ein Beispiel für eine Einwegfunktion ist die Multiplikation zweier Primzahlen.
 Eine solche Funktion könnte $f(a,b) = a \times b$ lauten. \newline Wählt man jetzt zum Beispiel: a = 37967 und b = 41389 so ist das Ergebnis von $f(37967, 41389)$ die 1571416163. Das Multiplizieren von $a$ und $b$ geht schnell, also ist die erste Bedingung einer Einwegfunktion erfüllt und ohne weiteres ist es auch nicht leicht aus dem Ergebnis die beiden Primzahlen $a,b$ herauszuziehen, außer eine der beiden ist bekannt und somit ist die zweite Bedingung der Definition auch erfüllt. Allerdings kann ein Computer in diesem Fall $a,b$ trotzdem schnell errechnen, da $a,b$ verhältnismäßig sehr klein sind. Wählt man $a,b$ sehr groß, so ist es praktisch unmöglich aus dem Ergebnis die beiden Primzahlen zu zerlegen. Diese Einwegfunktion wird vom RSA-Kryptosystem verwendet, welches in dieser Arbeit allerdings nicht erläutert wird.
 
-\section{Verschlüsselung}
+\subsection{Stark wachsende Vektoren}
+Ein stark wachsender Vektor $V$ ist eine Abfolge von Zahlen, in der jede nächste Zahl $V[k]$ größer ist als die Summe aller Zahlen zuvor. Für $k > 0$ heißt das mathematisch Ausgedrückt:
+
+\begin{center}
+\[V[k] > \sum_{i = 0}^{k - 1}V[i]\]
+\end{center}
+Hier ein Beispiel für einen solchen Vektor:
+\begin{center}
+$V = \{1, 2, 4, 8, 16, 32, 64, 128\}$
+\end{center}
+
+\section{Verschlüsselung} \label{crypt}
 Verschlüsselung oder auch Kryptographie ist wie in der Einleitung schon erwähnt, in der heutigen Zeit ein sehr wichtiges Thema. Aber auch früher wurde schon verschlüsselt. Die ersten Verschlüsselungsverfahren entstanden vor ca. 2000 Jahren, diese wurden natürlich per Hand auf Papier ausgeführt. Heutzutage läuft alles über Computer. \newline Es gibt zwei Arten der Verschlüsselung, die symmetrische (mehr dazu in Kapitel \ref{symm}) und die asymmetrische (mehr dazu in Kapitel \ref{asymm}) Verschlüsselung. Das Prinzip hinter Verschlüsselung ist bei allen Verschlüsselungsverfahren das gleiche. Zuerst gibt es irgendeine Nachricht, einen Text, eine Datei oder irgendwelche Daten, die Verschlüsselt werden sollen. Meist werden diese Daten als Klartext bezeichnet. Nach dem dieser Klartext mit einem Verfahren symmetrisch oder asymmetrisch verschlüsselt wurde, erhält man eine verschlüsselte Form dieses Klartextes, welche meist als Geheimtext bezeichnet wird. Dieser Geheimtext wird dann verschickt und der Empfänger kann dann mit Hilfe des passenden Entschlüsselungsverfahren aus dem Geheimtext den ursprünglichen Klartext erhalten. Beim Ver- /Entschlüsseln werden meist Schlüssel benutzt, allerdings gibt es, was das angeht, Unterschiede in symmetrischer und asymmetrischer Verschlüsselung.
 
-\subsection{Ziele der Verschlüsselung}
+\subsection{Ziele der Verschlüsselung}\label{crypt:goals}
 In der Kryptographie gibt es vier Hauptziele (vgl. \cite{delfs_knebl} S. 2-3):
 
 \begin{itemize}
@@ -118,7 +129,7 @@ Symmetrische Verschlüsselungsverfahren gibt es schon deutlich länger als asymm
 Das Prinzip hinter symmetrischer Verschlüsselung ist recht simpel. Es gibt nur einen Schlüssel für Ver- und Entschlüsselung, das bedeutet, dass alle Parteien, die an einer Kommunikation teilnehmen, den selben Schlüssel haben. Wenn jetzt Partei A einer zweiten Partei B eine Nachricht schicken will, wird diese Nachricht mit dem Schlüssel durch den Algrorithmus des jeweiligen Verfahrens verschlüsselt, dadurch erhält Partei A einen Geheimtext. Dieser wird nun an Partei B geschickt. Partei B kennt den zuvor Ausgetauschten Schlüssel und kann nun mit ihm durch den passenden Entschlüsselungsalgorithmus den Geheimtext entschlüsseln und erhält die von Partei A verschlüsselte Nachricht.\newline Folgende Grafik verdeutlicht dieses Schema:
 
 \begin{center}
-\includegraphics[scale=0.2]{symm_shema.png} %ref link wikipedia
+\includegraphics[scale=0.7]{symm_shema.png} %ref link wikipedia
 \end{center}
 
 % Daniel
@@ -136,36 +147,35 @@ Asymmetrische Verschlüsselung ist im Vergleich zu symmetrischer noch recht jung
 \subsection{Prinzip asymmetrischer Verschlüsselung}\label{asymm:prinzip}
 Asymmetrische Verschlüsselung ist das Gegenstück zu symmetrischer Verschlüsselung, denn hier gibt es nicht nur einen Schlüssel, der für Ver- und Entschlüsselung gebraucht wird, sondern jede Partei einer Kommunikation besitzt einen unterschiedlichen öffentlichen Schlüssel, welcher für jeden zugänglich ist, und einen privaten Schlüssel, welcher nur der jeweiligen Partei bekannt ist. Wenn jetzt zum Beispiel Partei A einer zweiten Partei B eine Nachricht schicken will, fragt Partei A bei Partei B nach ihrem öffentlichen Schlüssel. Die Übertragung dieses Schlüssels muss nicht sicher sein. Nach dem sie diesen erhalten hat, verschlüsselt Partei A ihre Nachricht mit diesem öffentlichen Schlüssel über einen Verschlüsselungsalgrorithmus und erhält einen Geheimtext, den sie selber nicht mehr entschlüsseln kann. Dieser Geheimtext wird dann zu Partei B geschickt und diese kann dann mit Hilfe ihres privaten Schlüssels und dem passenden Entschlüsselungsalgorithmus den Geheimtext entschlüsseln. Die Ver- und Entschlüsselungsalgorithmen, welche Partei A und B benutzen, benutzen eine Einwegfunktion mit Falltür (Definition in Kapitel \ref{oneway_trapdoor}), welche als Falltürinformation den jeweiligen privaten Schlüssel benutzt. \newline Folgende Grafik verdeutlicht dieses Schema:
 \begin{center}
-\includegraphics[scale=0.2]{asymm_shema.png} %ref link wikipedia
+\includegraphics[scale=0.7]{asymm_shema.png} %ref link wikipedia
 \end{center}
-\subsection{Digitale Signaturen}
-Auch wenn das Merkle-Hellman-Kryptosystem keine Signaturen benutzt, sind sie doch ein wichtiger Bestandteil der asymmetrischen Verschlüsselung.
-Signaturen werden mithilfe der Einwegfunktion $f(x)$, welche die Ver- /Entschlüsselungsalgorithmen benutzten, erstellt. Die Einwegfunktion muss allerdings eine zusätzliche Eigenschaft haben, sie muss bijektiv sein, das heißt, dass es für jeden $x$ Wert, nur genau einen $y$ Wert gibt und für jeden $y$ Wert, genau einen $x$ Wert.
-Wenn jetzt Partei A eine Nachricht $n$ an Partei B schicken will, kehrt Partei A $f(x)$ mit ihrem privaten Schlüssel um und signiert dann mit $f^{-1}(x)$ die Nachricht und erhält die Signatur $s = f^{-1}(m)$. Diese wird dann an Partei B geschickt und die kann dann mit $f(s) = n$ und Partei As öffentlichem Schlüssel, die erhaltene Nachricht verifizieren und weiß nun, dass Partei A die Nachricht geschickt haben muss, da nur sie $f^{-1}(x)$ berechnen konnte.
+\subsection{Digitale Signaturen}\label{asymm:sign}
+Signaturen werden mithilfe der Einwegfunktion $f(x)$, welche die Ver- /Entschlüsselungsalgorithmen benutzen, erstellt. Die Einwegfunktion muss allerdings eine zusätzliche Eigenschaft haben, sie muss bijektiv sein, das heißt, dass es für jeden $x$ Wert, nur genau einen $y$ Wert gibt und für jeden $y$ Wert genau einen $x$ Wert.
+Wenn jetzt Partei A eine Nachricht $n$ an Partei B schicken will, kehrt Partei A die Funktion $f(x)$ mit ihrem privaten Schlüssel um und signiert dann mit $f^{-1}(x)$ die Nachricht und erhält die Signatur $s = f^{-1}(n)$. Diese wird dann an Partei B geschickt und die kann dann mit $f(s) = n$ und dem öffentlichem Schlüssel von Partei A, die erhaltene Nachricht verifizieren. Partei B weiß nun, dass Partei A die Nachricht geschickt haben muss, da nur sie $f^{-1}(x)$ berechnen konnte. (\cite{delfs_knebl} S.)
 \subsection{Sicherheit} % Daniel
-Asymmetrsiche Verschlüsselungsverfahren haben das Problem der Schlüsselverteilung nicht, weshalb sie gegen über symmetrsichen Verfahren in dem Punkt sicherer sind. Des weiteren gibt es bis jetzt keine effizienten Algorithmen um die beschriebenen Einwegfunktionen umzukehren ohne die entsprechenden Geheiminformationen zu kennen.
+Asymmetrische Verschlüsselungsverfahren haben das Problem der Schlüsselverteilung nicht, weshalb sie gegenüber symmetrischen Verfahren in dem Punkt sicherer sind. Des Weiteren gibt es bis jetzt keine effizienten Algorithmen, um die beschriebenen Einwegfunktionen um zukehren ohne die entsprechenden Geheiminformationen zu kennen. Die einzige Möglichkeit dafür ist Ausprobieren und das dauert zu lange. Durch Signaturen gewinnen asymmetrische Verfahren auch noch an Sicherheit. (siehe Kapitel \ref{crypt:goals} und \ref{asymm:sign})
 
 
 
-\section{Merkle-Hellman Kryptosystem}\label{mhk}
-Das asymmetrische Merkle-Hellman Kryptosystem wurde 1978 von Ralph Merkle und Martin Hellman erfunden und ist eins der ersten asymmetrischen Kryptosysteme. Es verwendet anders als andere Verfahren(z.B.: RSA) keine digitalen Signaturen. Das Verfahren basiert auf dem Rucksackproblem, welches in Kapitel \ref{rucksack} erläutert wird.
+\section{Merkle-Hellman-Kryptosystem}\label{mhk}
+Das asymmetrische Merkle-Hellman-Kryptosystem wurde 1978 von Ralph Merkle und Martin Hellman erfunden und ist eins der ersten asymmetrischen Kryptosysteme. Es verwendet anders als andere Verfahren (z.B.: RSA) keine digitalen Signaturen. Das Verfahren basiert auf dem Rucksackproblem, welches in Kapitel \ref{rucksack} erläutert wird.
 
 %vergleiche bio merkle & hellman
 \subsection{Über die Erfinder}
-Ralph Merkle wurde 1952 in Carlifornien geboren. Er schloss 1974 sein Informatikstudium in UC Berkley ab. Im Jahr 1974 stellte er seinen Professoren seine Endeckung zum kryptographischen Schlüsselaustausch, heute bekannt als Merkle's Puzzles, vor. Allerdings hatten sie kein weiteres Interesse an seiner Idee. Doch als er auf Whitfield Diffie und Matrin Hellman traf nam er seine Idee wieder auf und zusammen entwickelten sie Das Merkle-Hellman Kryptosystem. Heutzutage ist Merkle in der Nanotechnologiebranche tätig.  \newline Martin Hellman wurde 1945 in New York geboren. Er schloss sein Studium in Elektrotechnik 1969 an der Standford University ab. Im Jahre 1976 publizierte er zusammen mit Whitfield Diffie einen Artikel über den Deffie-Hellman Schlüsselaustausch und erste Ideen zur asymmetrsichen Verschlüsselung. Heutzutage ist Hellman Professor in Standford im Fach Elektrotechnik.
+Ralph Merkle wurde 1952 in Carlifornien geboren. Er schloss 1974 sein Informatikstudium in UC Berkley ab. Im Jahr 1974 stellte er seinen Professoren seine Entdeckung zum kryptographischen Schlüsselaustausch, heute bekannt als Merkle's Puzzles, vor. Allerdings hatten sie kein weiteres Interesse an seiner Idee. Doch als er auf Whitfield Diffie und Matrin Hellman traf, nahm er seine Idee wieder auf und zusammen entwickelten sie das Merkle-Hellman-Kryptosystem. Heutzutage ist Merkle in der Nanotechnologie-branche tätig.  \newline Martin Hellman wurde 1945 in New York geboren. Er schloss sein Studium in Elektrotechnik 1969 an der Standford University ab. Im Jahre 1976 publizierte er zusammen mit Whitfield Diffie einen Artikel über den Diffie-Hellman Schlüsselaustausch und erste Ideen zur asymmetrischen Verschlüsselung. Heutzutage ist Hellman Professor in Standford im Fach Elektrotechnik.
 
 \subsection{Rucksackproblem}\label{rucksack}
-Da das Merkle-Hellman Kryptosystem auf dem Rucksackproblem basiert wird es in diesem Unterkapitel erläutert. \newline Das Rucksackproblem ist leicht mit einem Beispiel zu erklären: Man stelle sich vor man hat einen Rucksack, der nur mit einer bestimmten Menge an Gewicht voll gepackt werden kann. Des weiteren liegen neben dem Rucksack ein paar Gewichte, welche nicht gleich schwer sind und jeweils einen bestimmten Wert haben. Welche Gewichte kommen in den Rucksack so das die Gewichtsgrenze nicht überschritten wird und der maximale Wert(Die Summe aller Werte, der Gewichte im Rucksack) erzielt wird? \newline
+Da das Merkle-Hellman Kryptosystem auf dem Rucksackproblem basiert wird es in diesem Unterkapitel erläutert. \newline Das Rucksackproblem ist leicht mit einem Beispiel zu erklären: Stellen sie sich vor man hat einen Rucksack, der nur mit einer bestimmten Menge an Gewicht voll gepackt werden kann. Des Weiteren liegen neben dem Rucksack ein paar Gewichte, welche nicht gleich schwer sind und jeweils einen bestimmten Wert haben. Welche Gewichte kommen in den Rucksack, so dass die Gewichtsgrenze nicht überschritten wird und der maximale Wert (Die Summe aller Werte, der Gewichte im Rucksack) erzielt wird? \newline
 Hier ein Beispiel:
 \begin{center}
 \includegraphics[scale=0.2]{rucksackproblem.png} %ref link wikipedia
 \end{center}
-Der abgebildete Rucksack kann maximal 15kg tragen. Um ihn herum liegen 10 Gewichte aber welche werden eingepackt? Um dies heraus zu finden werden alle Möglichkeiten, inklusive keine und alle Gewichte im Rucksack, durch probiert und dann geschaut welche Möglichkeiten unter der Gewichtsgrenze liegen und den größten Wert erzielen. Für $n$ Gewichte gibt $2^{n}$ verschiedene Möglichkeiten. Für das Beispiel gibt es also $2^{10} = 1024$ Möglichkeiten. Das sind noch nicht allzu viele und lässt sich deshalb schnell berechnen. Hat man jetzt allerdings weit aus mehr Gewichte lässt sich das Problem nicht mehr effizient lösen. Es gibt eine Ausnahme, welche für das Merkle-Hellman Kryptosystem sehr wichtig ist, diese wird in den nächsten unter Kapiteln erklärt.
+Der abgebildete Rucksack kann maximal 15kg tragen. Um ihn herum liegen 5 Gewichte, aber welche werden eingepackt? Um dies herauszufinden werden alle Möglichkeiten, inklusive keine und alle Gewichte im Rucksack, durchprobiert. Dann wird geschaut, welche Möglichkeiten unter der Gewichtsgrenze liegen und den größten Wert erzielen. Für $n$ Gewichte gibt es $2^{n}$ verschiedene Möglichkeiten. Für das Beispiel gibt es also $2^{5} = 32$ Möglichkeiten. Das sind noch nicht viele und lässt sich deshalb schnell berechnen. Hat man jetzt allerdings weit aus mehr Gewichte lässt sich das Problem nicht mehr effizient lösen. Es gibt eine Ausnahme, welche für das Merkle-Hellman Kryptosystem sehr wichtig ist, diese wird in den nächsten Unterkapiteln erklärt.
 
 %algorithmus
 \subsection{Verfahren}
 \subsubsection{Schlüsselerzeugung}
-Bei der Schlüsselerzeugung wird zuerst der private Schlüssel generiert, dieser muss ein stark wachsender Vektor seien, dass spielt bei der Entschlüsselung eine entscheidene Rolle, und eine Länge von acht Elementen haben, da ein Buchstabe in Binärcode acht Bits hat. Ein solcher privater Schlüssel $S_p$ könnte folgender Maßen aussehen:
+Bei der Schlüsselerzeugung wird zuerst der private Schlüssel generiert und dieser muss ein stark wachsender Vektor seien. Das spielt bei der Entschlüsselung eine entscheidene Rolle, und eine Länge von acht Elementen haben, da ein Buchstabe im Binärcode acht Bits hat. Ein solcher privater Schlüssel $S_p$ könnte folgendermaßen aussehen:
 \begin{center}
 $S_p=\{44,45,90,180,360,720,1440,2880\}$
 \end{center}
@@ -173,7 +183,7 @@ Nachdem der private Schlüssel generiert wurde, wird der öffentliche Schlüssel
 \begin{center}
 \[m > \sum_{i=0}^{k-1} S_p[i]\]
 \end{center}
-n wird zufällig gewählt allerdings so, dass der $ggT(m, n) = 1$.
+n wird zufällig gewählt, allerdings so, dass der $ggT(m, n) = 1$ ist.
 Für unser Beispiel wählen wir $m = 16511$ und $n = 11111$. Um jetzt den öffentlichen Schlüssel $S_{"o}$ zu erstellen, rechnet man für jedes Element $i$:
 \begin{center}
 \[S_{"o}[i]=(S_p[i] \times n)\; mod \; m\]
@@ -189,15 +199,15 @@ Bei der Verschlüsselung wird der Klartext $T_k$ erst in Binärcode umgewandelt.
 %$T_k = \{\{0,1,0,0,1,0,0,0\},\{0,1,1,0,0,0,0,1\},\{0,1,1,0,1,1,0,0\},\{0,1,1,0,1,1,0,0\},\{0,1,1,0,1,1,1,1\}\}$
 $T_k = \{01101000, 01100001, 01101100, 01101100, 01101111\}$
 \end{center}
-Nun wird jeder Bit von jedem Element von $T_k$ mit jedem Element von $S_{"o}$ multipliziert und diese jeweils immer acht Produkte werden addiert, so erhält man die einzelnen ''Geheimbuchstaben'', welche zusammen den Geheimtext $T_g$ ergeben.
+Nun wird jedes Bit von jedem Element von $T_k$ mit jedem Element von $S_{"o}$ multipliziert und diese jeweils immer acht Produkte werden addiert, so erhält man die einzelnen ''Geheimbuchstaben'', welche zusammen den Geheimtext $T_g$ ergeben.
 Für unser Beispiel:
 \begin{center}
 $T_g=\{18293,15357,26889,26889,28932\}$
 \end{center}
 \subsubsection{Entschlüsselung}
 Zum Entschlüsseln benötigt man $S_p,n,m$ und das modulare Inverse $m^{-1}$ von $m$ und $n$, welches mit dem erweiterten euklidischen Algorithmus berechnet wird.
-Für unser Beispiel $m^{-1} = 584$.
-Nun wird, um den Klartext zu erhalten, zu erst jedes Element $i$ von $T_g$ mit $m^{-1}$ multipliziert und mit Rest durch m Dividiert.
+Für unser Beispiel gilt $m^{-1} = 584$.
+Nun wird, um den Klartext zu erhalten, zuerst jedes Element $i$ von $T_g$ mit $m^{-1}$ multipliziert und mit Rest durch m dividiert.
 \begin{center}
 \[T_g[i] = (T_g[i] \times m^{-1})\; mod \; m\]
 \end{center}
@@ -206,7 +216,7 @@ Für das Beispiel ergibt sich die transformierte Version von $T_g$:
 $T_g=\{495,3015,1215,1215,5535\}$
 \end{center}
 Danach kommt der Teil in dem die erwähnte Ausnahme des Rucksackproblems wichtig wird.
-Analog stehen hier die Elemente des privaten Schlüssel $S_p$ für die Gewichte, welche alle 1kg wiegen und den Wert $S_p[i]$ haben. Die Gewichtsgrenze des Rucksacks liegt bei 8kg, also würden theoretisch alle Gewichte hinein passen, allerdings wird hier nicht probiert den maximalen Wert zu erreichen, sondern es wird probiert die Werte in $T_g$ zu erreichen und deshalb ist es wichtig das der private Schlüssel ein stark wachsender Vektor ist, denn nur dann ist das Rucksackproblem schnell durch einen Greedyalgorithmus zu lösen. Man erhält als Lösung den Klartext in Binärcodes, in denen eine 1 für ein zutreffendes Element im Schlüssel zur Lösung steht und eine 0 für ein nicht zutreffendes Element. \newline Hier das ganze für den ersten Buchstaben am Beispiel:
+Analog stehen hier die Elemente des privaten Schlüssel $S_p$ für die Gewichte, welche alle 1 kg wiegen und den Wert $S_p[i]$ haben. Die Gewichtsgrenze des Rucksacks liegt bei 8 kg, also würden theoretisch alle Gewichte hinein passen, allerdings wird hier nicht probiert den maximalen Wert zu erreichen, sondern es wird probiert die Werte in $T_g$ zu erreichen und deshalb ist es wichtig, dass der private Schlüssel ein stark wachsender Vektor ist, denn nur dann ist das Rucksackproblem schnell durch einen Greedyalgorithmus\footnote{Greedyalgorithmus} zu lösen. Man erhält als Lösung den Klartext in Binärcodes, in denen eine 1 für ein zutreffendes Element im Schlüssel zur Lösung steht und eine 0 für ein nicht zutreffendes Element. \newline Hier das ganze für den ersten Buchstaben am Beispiel:
 \begin{center}
 \begin{flushleft}
 Für $T_g[0]$ soll eine Lösung aus den Werten von $S_p$ gefunden werden, um den ersten Buchstaben in binär zu erhalten.
@@ -218,7 +228,7 @@ Die Lösung lautet $01101000$, da:
 \[(0 \times 44) + (1 \times 45) + (1 \times 90) + (0 \times 180) + (1 \times 360)  + (0 \times 720 )+ (0 \times 1440 )+ (0 \times 2880) = 495\]
 
 \begin{flushleft}
-Das selbe muss jetzt für jedes Element in $T_g$ getan werden und man erhält den Klartext:
+Dasselbe muss jetzt für jedes Element in $T_g$ getan werden und man erhält den Klartext:
 \end{flushleft}
 
 \[T_k = \{01101000, 01100001, 01101100, 01101100, 01101111\}\]
@@ -230,7 +240,7 @@ Das selbe muss jetzt für jedes Element in $T_g$ getan werden und man erhält de
 %$T_k = \{\}$
 %\end{center}
 \subsection{Sicherheit}
-Zur generellen Sicherheit des Verfahrens sollte man sagen, dass solange $m, n, m^{-1}, S_p$ nicht bekannt sind, es schwer seien sollte das System zu knacken, allerdings hat Adi Shamir, einer der Erfinder des RSA-Vefahrens, es 1982 trotzdem geschafft. Shamirs Methode, zum knacken des Verfahrens ist sehr komplex und würde den Rahmen dieser Facharbeit definitiv sprengen. Des weiteren beinhaltet das Merkle-Hellman-Kryptosystem keine Methoden zum Signieren was mit Hinblick auf die Sicherheit ein großes Problem ist, denn sind zwei Ziele von Verschlüsselung nicht erreicht(Authentizität und Nichtabstreitbarkeit). %merkle-hellman-knapsack-based-public-key-method.pdf
+Zur generellen Sicherheit des Verfahrens sollte man sagen, dass solange $m, n, m^{-1}, S_p$ nicht bekannt sind, es schwer seien sollte das System zu kompomitieren. Allerdings hat Adi Shamir, einer der Erfinder des RSA-Vefahrens, es 1982 trotzdem geschafft. Shamirs Methode, zum kompomitieren des Verfahrens ist sehr komplex und würde den Rahmen dieser Facharbeit definitiv sprengen. Des Weiteren beinhaltet das Merkle-Hellman-Kryptosystem keine Methoden zum Signieren, was mit Hinblick auf die Sicherheit ein großes Problem ist, denn dadurch sind zwei Ziele der Verschlüsselung (Authentizität und Nichtabstreitbarkeit) nicht erreicht. %merkle-hellman-knapsack-based-public-key-method.pdf
 
 
 
