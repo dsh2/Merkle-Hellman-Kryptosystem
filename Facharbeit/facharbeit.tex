@@ -3,15 +3,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{german}
-\usepackage{amssymb} 
-\usepackage{url} 
+\usepackage{amssymb}
+\usepackage{url}
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{eurosym}
 \usepackage{tabularx}
 
  %settings
-\geometry{a4paper,left=30mm,right=25mm, top=20mm, bottom=20mm} 
+\geometry{a4paper,left=30mm,right=25mm, top=20mm, bottom=20mm}
 \onehalfspacing
 \bibliographystyle{plain}
 \author
@@ -34,8 +34,31 @@ Schuljahr 2014/15
 \newpage
 
 \section{Einleitung}
-Diese Facharbeit entsteht im Rahmen einer Schulaufgabe im Fach Mathematik und beschäftigt sich mit asymmetrischen Verschlüsselungsverfahren am Beispiel vom Merkle-Hellman Kryptosystem. Ich habe dieses Thema gewählt da ich sehr mathematisch und informationstechnisch interessiert bin und mein späteres Studium wahrscheinlich auch in eine dieser Richtungen verlaufen wird. Des Weiteren sind Sicherheit und Geheimhaltung im heutigen Medienzeitalter ein sehr interessantes und vor allem wichtiges Thema, da ein sehr großer Teil der Kommunikation über Telefone beziehungsweise über das Internet läuft und Sicherheit an manchen Stellen sehr wichtig ist. \newline Im ersten Kapitel werden die Mathematischen Grundlagen, die für das Verständnis der Arbeit gebraucht werden, erläutert. Dazu gehören: Restrechnung, der Euklidische Algorithmus, der erweiterte Euklidische Algorithmus und Einwegfunktionen mit und ohne Falltür, an einem Beispiel. Das darauf folgende Kapitel beschäftigt sich allgemein mit Verschlüsselung, ihre Ziele, Verschlüsselungsprotokolle und ihre Anwendung. Die zwei darauf folgenden Kapitel informieren über symmetrische und asymmetrische Verschlüsselung, ihre Prinzipien und Sicherheit. Das vorletzte Kapitel erläutert, als Beispiel für ein asymmetrisches Verfahren, das Merkle-Hellman-Kryptosystem. Dazu gehören: eine kurz Biographie der Erfinder, das Rucksackproblem, das Verfahren an sich(Schlüsselerzeugung, Verschlüsselung, Entschlüsselung) und die Sicherheit des Verfahrens, da es schon seit 1982 als nicht Sicher gilt. Zum Schluss werde ich noch ein persönliches Fazit aus meiner Bearbeitung dieser Arbeit ziehen. Außerdem werde ich im Rahmen dieser Arbeit das Merkle-Hellman-Kryptosystem in der Programmiersprache Java selber programmieren.
-\newpage 
+Diese Facharbeit entsteht im Rahmen einer Schulaufgabe im Fach Mathematik und
+beschäftigt sich mit asymmetrischen Verschlüsselungsverfahren am Beispiel vom
+Merkle-Hellman Kryptosystem. Ich habe dieses Thema gewählt, da ich sehr
+mathematisch und informationstechnisch interessiert bin und mein späteres
+Studium wahrscheinlich auch in eine dieser Richtungen verlaufen wird. Des
+Weiteren sind Sicherheit und Geheimhaltung im heutigen Medienzeitalter ein sehr
+interessantes und vor allem wichtiges Thema, da ein sehr großer Teil der
+Kommunikation über Telefone beziehungsweise über das Internet läuft und
+Sicherheit an manchen Stellen sehr wichtig ist.
+
+Im ersten Kapitel werden die Mathematischen Grundlagen, die für das Verständnis
+der Arbeit gebraucht werden, erläutert. Dazu gehören: Restrechnung, der Euklidische
+Algorithmus, der erweiterte Euklidische Algorithmus und Einwegfunktionen mit
+und ohne Falltür, an einem Beispiel. Das darauf folgende Kapitel beschäftigt
+sich allgemein mit Verschlüsselung, ihre Ziele, Verschlüsselungsprotokolle und
+ihre Anwendung. Die zwei darauf folgenden Kapitel informieren über symmetrische
+und asymmetrische Verschlüsselung, ihre Prinzipien und Sicherheit. Das
+vorletzte Kapitel erläutert, als Beispiel für ein asymmetrisches Verfahren, das
+Merkle-Hellman-Kryptosystem. Dazu gehören: eine kurz Biographie der Erfinder,
+das Rucksackproblem, das Verfahren an sich(Schlüsselerzeugung, Verschlüsselung,
+Entschlüsselung) und die Sicherheit des Verfahrens, da es schon seit 1982 als
+nicht Sicher gilt. Zum Schluss werde ich noch ein persönliches Fazit aus meiner
+Bearbeitung dieser Arbeit ziehen. Außerdem werde ich im Rahmen dieser Arbeit
+das Merkle-Hellman-Kryptosystem in der Programmiersprache Java selber
+programmieren.  \newpage
 
 \section{Mathematische Grundlagen}
 
@@ -48,10 +71,10 @@ Auf das obrige Beispiel bezogen würde man also $12 = 123 \; mod \; 10$ schreibe
  \begin{center}
 \[a \equiv b \; mod \; c\]
  \end{center}
-Ausgesprochen heißt das: $a$ ist kongruent $b$ modulo $c$. 
+Ausgesprochen heißt das: $a$ ist kongruent $b$ modulo $c$.
 Das heißt also das alle Zahlen einer Restklasse Kongruent zueinander sind.
 Wenn der $ggT(a, b) = 1$, dann sind $a$ und $b$ Teilerfremd.
- 
+
 \subsection{Euklidischer Algorithmus}
 Viele asymmetrische Verschlüsselungsverfahren müssen häufig den größten gemeinsamen Teiler oder kurz den ggT zweier oder mehrerer Zahlen errechnen und der euklidische Algorithmus ist nichts anderes als eine Methode um dies zu tun. Er erhielt seinen Namen von seinem Erfinder Euklid.\newline Um den ggT zweier ganzer Zahlen a, b mit $a > b$ zu bestimmen, wird zu erst $c = a \; mod \; b$ berechnet. Dann wird der Wert von a in den von b geändert und der von b in den von c. Danach wird dieser Vorgang mit ''neuem'' $a$ und $b$ wiederholt solange bis $c$ gleich 0 ist. Und dann ist der letzte von $b$ angenommene Wert der ggT von $a$ und $b$.
 
@@ -80,7 +103,7 @@ Verschlüsselung oder auch Kryptographie ist wie in der Einleitung schon erwähn
 In der Kryptographie gibt es vier Hauptziele:
 
 \begin{itemize}
-\item \textit{Vertraulichkeit.} Es sollte nur berechtigten Personen möglich sein die Daten verstehen zu können. 
+\item \textit{Vertraulichkeit.} Es sollte nur berechtigten Personen möglich sein die Daten verstehen zu können.
 
 \item \textit{Datenintegrität.} Es sollte für den Empfänger nachvollziehbar sein, ob die erhaltenen Daten manipuliert wurden.
 
@@ -90,7 +113,7 @@ In der Kryptographie gibt es vier Hauptziele:
 \end{itemize} % vergleiche itc buch s.2
 Die Vertraulichkeit wird erreicht in dem ein sicherer Verschlüsselungsalgorithmus benutzt wird. Ein Verschlüsselungsalgorithmus wird als sicher bezeichnet, wenn es nur sehr schwer ist den Geheimtext, ohne passenden Schlüssel, in den Klartext umzuwandeln. Datenintegrität wird erreicht durch so genannte message authentification codes oder Kurz MAC. Solche Codes werden durch einen Algorithmus(meist Hashalgorithmen) erzeugt, welcher dafür den Schlüssel und den Klartext benutzt. Das erreichen von Authentizität und Nichtabstreitbarkeit wird bei asymmetrsichen Verfahren durch digitale Signaturen sichergestellt. Diese sind zu vergleichen mit einer Unterschrift auf einem Blatt Papier.%vergleiche buch s.3
 %Daniel
- 
+
 \subsection{Verschlüsselungsprotokolle}
 Wenn alle Bestandteile eines Verschlüsselungsverfahren(Ver- /Entschlüsselung und Methoden zum erreichen von Datenintegrität ,Authentizität, Nichtabstreitbarkeit) zusammen kommen, nennt man die Abfolge dieser einzelnen Bestandteile ein Verschlüsselungsprotokoll.
 
@@ -109,7 +132,7 @@ Das Prinzip hinter symmetrsicher Verschlüsselung ist recht simpel. Es gibt nur 
 \end{center}
 
 % Daniel
-\subsection{Stromchiffren} 
+\subsection{Stromchiffren}
 Stromchiffren verarbeiten immer jeden Bit einer Nachricht einzeln, also ein Bit rein ein Bit raus. Dabei kommt es zu dem Problem, dass der Empfänger nicht weiß, an welcher Stelle der Sender im Strom gerade ist und falls mal ein Teil der Nachricht, bei der Übertragung verloren gehen sollte, führt das auch zu Problemen.
 \subsection{Blockchiffren}
 Blockchiffren verarbeiten immer eine bestimmte Menge an Bits einer Nachricht, in einem ganzen Block. Das Problem, dabei ist, dass manchmal ein Block zu klein ist und somit die Verschlüsselung überhaupt nicht stattfinden kann.
@@ -173,12 +196,12 @@ Bei der Verschlüsselung wird der Klartext $T_k$ erst in Binärcode umgewandelt.
 \begin{center}
 %$T_k = \{\{0,1,0,0,1,0,0,0\},\{0,1,1,0,0,0,0,1\},\{0,1,1,0,1,1,0,0\},\{0,1,1,0,1,1,0,0\},\{0,1,1,0,1,1,1,1\}\}$
 $T_k = \{01101000, 01100001, 01101100, 01101100, 01101111\}$
-\end{center} 
+\end{center}
 Nun wird jeder Bit von jedem Element von $T_k$ mit jedem Element von $S_{"o}$ multipliziert und diese jeweils immer acht Produkte werden addiert, so erhält man die einzelnen ''Geheimbuchstaben'', welche zusammen den Geheimtext $T_g$ ergeben.
 Für unser Beispiel:
 \begin{center}
 $T_g=\{18293,15357,26889,26889,28932\}$
-\end{center} 
+\end{center}
 \subsection{Entschlüsselung}
 Zum Entschlüsseln benötigt man $S_p,n,m$ und das modulare Inverse $m^{-1}$ von $m$ und $n$, welches mit dem erweiterten euklidischen Algorithmus berechnet wird.
 Für unser Beispiel $m^{-1} = 584$.
@@ -189,8 +212,8 @@ Nun wird, um den Klartext zu erhalten, zu erst jedes Element $i$ von $T_g$ mit $
 Für das Beispiel ergibt sich die transformierte Version von $T_g$:
 \begin{center}
 $T_g=\{495,3015,1215,1215,5535\}$
-\end{center} 
-Danach kommt der Teil in dem die erwähnte Ausnahme des Rucksackproblems wichtig wird. 
+\end{center}
+Danach kommt der Teil in dem die erwähnte Ausnahme des Rucksackproblems wichtig wird.
 Analog stehen hier die Elemente des privaten Schlüssel $S_p$ für die Gewichte, welche alle 1kg wiegen und den Wert $S_p[i]$ haben. Die Gewichtsgrenze des Rucksacks liegt bei 8kg, also würden theoretisch alle Gewichte hinein passen, allerdings wird hier nicht probiert den maximalen Wert zu erreichen, sondern es wird probiert die Werte in $T_g$ zu erreichen und deshalb ist es wichtig das der private Schlüssel ein stark wachsender Vektor ist, denn nur dann ist das Rucksackproblem schnell durch einen Greedyalgorithmus zu lösen. Man erhält als Lösung den Klartext in Binärcodes, in denen eine 1 für ein zutreffendes Element im Schlüssel zur Lösung steht und eine 0 für ein nicht zutreffendes Element. \newline Hier das ganze für den ersten Buchstaben am Beispiel:
 \begin{center}
 \begin{flushleft}
