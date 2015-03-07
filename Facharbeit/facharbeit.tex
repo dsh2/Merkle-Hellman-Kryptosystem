@@ -26,7 +26,7 @@ Schuljahr 2014/15
 
 %document beginns here
 \begin{document}
-\title{Asymetrische Verschlüsselungsverfahren am Beispiel vom Merkle-Hellman-Kryptosystem}
+\title{Asymmetrische Verschlüsselungsverfahren am Beispiel vom Merkle-Hellman-Kryptosystem}
 \maketitle
 
 \newpage
@@ -36,65 +36,55 @@ Schuljahr 2014/15
 \section{Einleitung}
 Diese Facharbeit entsteht im Rahmen einer Schulaufgabe im Fach Mathematik und
 beschäftigt sich mit asymmetrischen Verschlüsselungsverfahren am Beispiel vom
-Merkle-Hellman Kryptosystem. Ich habe dieses Thema gewählt, da ich sehr
-mathematisch und informationstechnisch interessiert bin und mein späteres
+Merkle-Hellman-Kryptosystem(\cite{merklehellman_neer}). Ich habe dieses Thema gewählt, da ich sehr mathematisch und informationstechnisch interessiert bin und mein späteres
 Studium wahrscheinlich auch in eine dieser Richtungen verlaufen wird. Des
 Weiteren sind Sicherheit und Geheimhaltung im heutigen Medienzeitalter ein sehr
 interessantes und vor allem wichtiges Thema, da ein sehr großer Teil der
 Kommunikation über Telefone beziehungsweise über das Internet läuft und
 Sicherheit an manchen Stellen sehr wichtig ist.
 
-Im ersten Kapitel werden die Mathematischen Grundlagen, die für das Verständnis
-der Arbeit gebraucht werden, erläutert. Dazu gehören: Restrechnung, der Euklidische
-Algorithmus, der erweiterte Euklidische Algorithmus und Einwegfunktionen mit
-und ohne Falltür, an einem Beispiel. Das darauf folgende Kapitel beschäftigt
-sich allgemein mit Verschlüsselung, ihre Ziele, Verschlüsselungsprotokolle und
-ihre Anwendung. Die zwei darauf folgenden Kapitel informieren über symmetrische
-und asymmetrische Verschlüsselung, ihre Prinzipien und Sicherheit. Das
-vorletzte Kapitel erläutert, als Beispiel für ein asymmetrisches Verfahren, das
-Merkle-Hellman-Kryptosystem. Dazu gehören: eine kurz Biographie der Erfinder,
-das Rucksackproblem, das Verfahren an sich(Schlüsselerzeugung, Verschlüsselung,
-Entschlüsselung) und die Sicherheit des Verfahrens, da es schon seit 1982 als
-nicht Sicher gilt. Zum Schluss werde ich noch ein persönliches Fazit aus meiner
+Die Ziele dieser Arbeit sind 1. beim Leser ein grundsätzliches Verständnis über die Notwendigkeit von Verschlüsselung zu vermitteln und 2. am Beispiel des Merkle-Hellman-Kryptosystems ein asymmetrisches Verfahren näher zu beleuchten.
+
+Für das grundsätzliche Verständnis dienen die Kapitel 2-5. Dabei werden zunächst die mathematischen Grundlagen, die für das Verständnis der Arbeit gebraucht werden, erläutert. Dazu gehören: Restrechnung, der Euklidische Algorithmus, der erweiterte Euklidische Algorithmus sowie Einwegfunktionen mit und ohne Falltür. Das darauf folgende Kapitel beschäftigt sich allgemein mit Verschlüsselung, ihre Ziele, Verschlüsselungsprotokolle und ihre Anwendung. Die zwei folgenden Kapitel informieren über symmetrische und asymmetrische Verschlüsselung, ihre Prinzipien und deren Sicherheit. Kapitel \ref{mhk} erläutert, als Beispiel für ein asymmetrisches Verfahren, das Merkle-Hellman-Kryptosystem. Dazu gehören: eine kurz Biographie der Erfinder, das Rucksackproblem, das Verfahren an sich(Schlüsselerzeugung, Verschlüsselung, Entschlüsselung) und die Sicherheit des Verfahrens. Zum Schluss werde ich noch ein persönliches Fazit aus meiner
 Bearbeitung dieser Arbeit ziehen. Außerdem werde ich im Rahmen dieser Arbeit
 das Merkle-Hellman-Kryptosystem in der Programmiersprache Java selber
 programmieren.  \newpage
 
 \section{Mathematische Grundlagen}
-
+Der Kern jedes Verschlüsselungssystems sind mathematische Grundlagen. Für den Umfang dieser Arbeit wird lediglich auf einige eingegangen. Dabei wird die Restrechnung, der euklidische Algorithmus und der erweiterte euklidische Algorithmus sowie die Einwegfunktionen beschrieben, um in den nachfolgenden Kapiteln darauf aufzubauen.
 \subsection{Restrechnung}
-Die Restrechnung ist den meisten vermutlich noch aus der Grundschule bekannt, denn bevor Rationale zahlen eingeführt wurden, war zum Beispiel: 123 geteilt durch 10 nicht etwa 12.3 sondern das Ergebnis lautete: 12 Rest 3. Allgemein ausgedrückt heißt es das bei einer Division zweier Zahlen $a,b$, mit $b \neq 0$, $a,b \in \mathbb{Z}$ ein Rest $r$ entstehen kann. Eine mögliche Schreibweise dafür wäre: \newline
+Die Restrechnung ist den meisten vermutlich noch aus der Grundschule bekannt, denn bevor Rationale Zahlen eingeführt wurden, war zum Beispiel: 123 geteilt durch 10 nicht etwa 12.3, sondern das Ergebnis lautete: 12 Rest 3. Allgemein ausgedrückt heißt es, dass bei einer Division zweier Zahlen $a,b$, mit $b \neq 0$, $a,b \in \mathbb{Z}$ ein Rest $r$ entstehen kann. Eine mögliche Schreibweise dafür wäre: \newline
 \begin{center}
-\[r = a \; mod \; b\]
+$r = a \; mod \; b$
 \end{center}
-Auf das obrige Beispiel bezogen würde man also $12 = 123 \; mod \; 10$ schreiben. Das $mod$ steht für modulo. \newline Bei Restrechnung geht es auch oft um Restklassen. Eine Restklasse besteht immer aus Zahlen welche geteilt durch eine Zahl $b$, mit $b \in \mathbb{Z}$ den selben Rest ergeben. So sind zum Beispiel die Zahlen 2; 5; 11; 38; 41; 86; 101 alle ein Teil der Restklasse modulo 3, denn sie alle ergeben bei der Division durch 3 den gleichen Rest. Im Zusammenhang mit Restklassen wird auch oft von Kongruenz geredet. Zwei zahlen $a, b$ sind kongruent zueinander, wenn sie dividiert durch eine dritte Zahl c den selben Rest r überlassen. Die Schreibweise dafür ist: \newline
+Auf das obige Beispiel bezogen würde man also $3 = 123 \; mod \; 10$ schreiben.\footnote{Das $mod$ steht für modulo.} \newline Bei Restrechnung geht es auch oft um Restklassen. Eine Restklasse besteht immer aus Zahlen, welche geteilt durch eine Zahl $b$, mit $b \in \mathbb{Z}$, den selben Rest ergeben. So sind zum Beispiel die Zahlen 2; 5; 11; 38; 41; 86; 101 alle ein Teil der Restklasse modulo 3, denn sie alle ergeben bei der Division durch 3 den gleichen Rest. Im Zusammenhang mit Restklassen wird auch oft von Kongruenz geredet. Zwei Zahlen $a, b$ sind kongruent zueinander, wenn sie dividiert durch eine dritte Zahl c den selben Rest r überlassen. Die Schreibweise dafür ist: \newline
  \begin{center}
-\[a \equiv b \; mod \; c\]
+$a \equiv b \; mod \; c$
  \end{center}
 Ausgesprochen heißt das: $a$ ist kongruent $b$ modulo $c$.
-Das heißt also das alle Zahlen einer Restklasse Kongruent zueinander sind.
-Wenn der $ggT(a, b) = 1$, dann sind $a$ und $b$ Teilerfremd.
+Das heißt also, dass alle Zahlen einer Restklasse kongruent zueinander sind.
+Wenn der $ggT(a, b) = 1$, dann sind $a$ und $b$ teilerfremd.
 
 \subsection{Euklidischer Algorithmus}
-Viele asymmetrische Verschlüsselungsverfahren müssen häufig den größten gemeinsamen Teiler oder kurz den ggT zweier oder mehrerer Zahlen errechnen und der euklidische Algorithmus ist nichts anderes als eine Methode um dies zu tun. Er erhielt seinen Namen von seinem Erfinder Euklid.\newline Um den ggT zweier ganzer Zahlen a, b mit $a > b$ zu bestimmen, wird zu erst $c = a \; mod \; b$ berechnet. Dann wird der Wert von a in den von b geändert und der von b in den von c. Danach wird dieser Vorgang mit ''neuem'' $a$ und $b$ wiederholt solange bis $c$ gleich 0 ist. Und dann ist der letzte von $b$ angenommene Wert der ggT von $a$ und $b$.
+Viele asymmetrische Verschlüsselungsverfahren müssen häufig den größten gemeinsamen Teiler oder kurz den ggT\footnote{Der ggT zweier Zahlen ist die größte mögliche Zahl, durch welche beide teilbar sind.} zweier oder mehrerer Zahlen errechnen und der euklidische Algorithmus ist nichts anderes als eine Methode um dies zu tun. Er erhielt seinen Namen von seinem Erfinder Euklid.(\cite{?})\newline Um den ggT zweier ganzer Zahlen $a, b$ mit $a > b$ zu bestimmen, wird zuerst $c = a \; mod \; b$ berechnet. Dann wird der Wert von a in den von b geändert und der von b in den von c. Danach wird dieser Vorgang mit ''neuem'' $a$ und $b$ wiederholt solange bis $c$ gleich 0 ist. Und dann ist der letzte von $b$ angenommene Wert, der ggT von $a$ und $b$.
 
 \subsection{Erweiterter Euklidischer Algorithmus}
-Der erweiterte euklidische Algorithmus bestimmt zusätzlich zum ggT von zwei ganzen Zahlen a,b mit $b \neq 0$ noch zwei weitere ganze Zahlen s,t. Die Gleichung die dabei gelöst wird ist folgende: \newline
+Der erweiterte euklidische Algorithmus bestimmt zusätzlich zum ggT von zwei ganzen Zahlen a,b mit $b \neq 0$ noch zwei weitere ganze Zahlen s,t. Die Gleichung, die dabei gelöst wird, ist folgende: \newline
 
 \begin{center}
 $ggT(a,b) = s \times a + t \times b$
 \end{center}
-Die häufigste Anwendung dieses Algorithmus, in der Verschlüsselung, ist die Bestimmung von Multiplikativen Inversen. Zwei ganze Zahlen $a, b$, haben ein multiplikatives Inverse wenn sie Teilerfremd sind.
+Die häufigste Anwendung dieses Algorithmus in der Verschlüsselung ist die Bestimmung von multiplikativen Inversen. Zwei ganze Zahlen $a, b$, haben ein multiplikatives Inverse wenn sie teilerfremd sind.
 
 \subsection{Einwegfunktionen}
-Eine Einwegfunktion ist eine Funktion welche leicht zu berechnen ist, also $y = f(x)$ ist schnell zu  berechnen, aber es nur sehr schwer bis unmöglich ist die Funktion umzukehren, also $x = f^{-1}(x)$ ist nicht effizient zu berechnen. Es wird angenommen das solche Funktionen existieren und es gibt auch einige Funktionen bei denen man annimmt das es sich um Einwegfunktionen handelt, allerdings ist dies nicht bewiesen. Einwegfunktionen werden vorallem in der asymmetrsichen Verschlüsselung häufig angewendet, allerdings wird dort eine spezielle Art von Einwegfunktionen verwendet, sogenannte Einwegfunktionen mit Falltür.
+Eine Einwegfunktion ist eine Funktion welche leicht zu berechnen ist. Es ist also $y = f(x)$ schnell zu  berechnen, aber es ist nur sehr schwer bis unmöglich ist die Funktion um zukehren, also $x = f^{-1}(x)$ ist nicht effizient zu berechnen. Es wird angenommen, dass solche Funktionen existieren und es gibt auch einige Funktionen bei denen man annimmt, dass es sich um Einwegfunktionen handelt, allerdings ist dies nicht bewiesen.(\cite{?}) Einwegfunktionen werden vor allem in der asymmetrischen Verschlüsselung häufig angewendet, allerdings wird dort eine spezielle Art von Einwegfunktionen verwendet, so genannte Einwegfunktionen mit Falltür.
 
 \subsubsection{Einwegfunktionen mit Falltür} \label{oneway_trapdoor}
-Einwegfunktionen mit Falltür sind Einwegfunktionen mit einer zusätzlichen Eigenschaft. Sie sind Umkehrbar allerdings nur mit den richtigen Falltür- /Geheiminformationen.
+Einwegfunktionen mit Falltür sind Einwegfunktionen mit einer zusätzlichen Eigenschaft. Sie sind umkehrbar, allerdings nur mit den richtigen Falltür- /Geheiminformationen.
 
 \subsubsection{Beispiel}
 Ein Beispiel für eine Einwegfunktion ist die Multiplikation zweier Primzahlen.
-Eine solche Funktion könnte $f(a,b) = a \times b$ lauten. \newline Wählt man jetzt zum Beispiel: a = 37967 und b = 41389 so ist das ergebnis von $f(37967, 41389)$ die 1571416163. Das multiplizieren von a und b geht schnell, also ist die erste Bedingung einer Einwegfunktion erfüllt und ohne weiteres ist es auch nicht leicht aus dem Ergebnis die Beiden Primzahlen a,b herauszuziehen außer eine der Beiden ist bekannt und somit ist die zweite Bedingung der Definition auch erfüllt. Allerdings kann ein Computer in diesem Fall a,b trotzdem schnell errechnen, da a,b Verhältnis mäßig sehr klein sind. Wählt man a,b sehr groß, so ist praktisch unmöglich aus dem Ergebnis die beiden Primzahlen zu zerlegen. Diese Einwegfunktion wird vom RSA Kryptosystem verwendet, welches in dieser Arbeit allerdings nicht erläutert wird.
+Eine solche Funktion könnte $f(a,b) = a \times b$ lauten. \newline Wählt man jetzt zum Beispiel: a = 37967 und b = 41389 so ist das Ergebnis von $f(37967, 41389)$ die 1571416163. Das Multiplizieren von $a$ und $b$ geht schnell, also ist die erste Bedingung einer Einwegfunktion erfüllt und ohne weiteres ist es auch nicht leicht aus dem Ergebnis die beiden Primzahlen $a,b$ herauszuziehen, außer eine der beiden ist bekannt und somit ist die zweite Bedingung der Definition auch erfüllt. Allerdings kann ein Computer in diesem Fall $a,b$ trotzdem schnell errechnen, da $a,b$ verhältnismäßig sehr klein sind. Wählt man $a,b$ sehr groß, so ist es praktisch unmöglich aus dem Ergebnis die beiden Primzahlen zu zerlegen. Diese Einwegfunktion wird vom RSA-Kryptosystem verwendet, welches in dieser Arbeit allerdings nicht erläutert wird.
 
 \section{Verschlüsselung}
 Verschlüsselung oder auch Kryptographie ist wie in der Einleitung schon erwähnt, in der heutigen Zeit ein sehr wichtiges Thema. Aber auch früher wurde schon verschlüsselt. Die ersten Verschlüsselungsverfahren entstanden vor ca. 2000 Jahren, diese wurden natürlich per Hand auf Papier ausgeführt. Heutzutage läuft alles über Computer. \newline Es gibt zwei arten der Verschlüsselung die symmetrsiche(mehr dazu in Kapitel \ref{symm}) und die asymmetrische(mehr dazu in Kapitel \ref{asymm}) Verschlüsselung.Das Prinzip hinter Verschlüsselung ist bei allen Verschlüsselungsverfahren das gleiche. Zu erst gibt es irgendeine Nachricht, einen Text, eine Datei oder irgendwelche Daten die Verschlüsselt werden sollen, meist werden diese Daten als Klartext bezeichnet.Nach dem dieser Klartext mit irgendeinem Verfahren, symmetrisch oder asymmetrisch, verschlüsselt wurde erhält man eine Verschlüsselte Form dieses Klartextes, welche meist als Geheimtext bezeichnet werden. Dieser Geheimtext wird dann verschickt und der Empfänger kann dann mit Hilfe des passenden Entschlüsselungsverfahren aus dem Geheimtext den Ursprünglichen Klartext erhalten. Beim Ver- /Entschlüsseln werden meist Schlüssel benutzt. Allerdings gibt es, was das angeht, Unterschiede in symmetrischer und asymmetrischer Verschlüsselung.
@@ -140,9 +130,9 @@ Blockchiffren verarbeiten immer eine bestimmte Menge an Bits einer Nachricht, in
 \subsection{Sicherheit}\label{symm:secu}
 Die Sicherheit von symmetrsichen Verfahren hängt stark vom Schlüssel ab. Ein zu kurzer Schlüssel zum Beispiel könnte schnell errechnet werden und somit wäre die Kommunitkation nicht mehr Sicher, deshalb ist ein langer Schlüssel\footnote{Heutzutage 1024 Bit.} wichtig, allerdings bringt auch ein langer Schlüssel nichts, wenn er eines Tages an die Öffentlichkeit geraten sollte, denn dann könnte jeder der die Entsprechenden Geheimdaten gesammelt hat den Schlüssel nutzen um diese zu Entschlüsseln. Es ist also sehr wichtig das der Schlüssel geheim bleibt, deshalb ist die Schlüsselverteilung auch ein wichtiger Punkt, wenn man über Sicherheit von symmetrischen Verfahren redet. Die Schlüsselverteilung findet Heutzutage häufig über asymmetrische Verfahren statt oder durch direkten Kontakt der Kommunikationspartner.
 
-\section{Asymetrische Verschlüsselung}\label{asymm}
+\section{Asymmetrische Verschlüsselung}\label{asymm}
 Asymmetrische Verschlüsselung ist im Vergleich zu symmetrischer noch recht jung. Im Jahr 1975 veröffentlichten Martin Hellman und Whitfield Deffie ihr Deffie-Hellman-Schlusselaustausch Protokoll und damit die ersten Ideen zur asymmetrischen Verschlüsselung. Das erste Wirkliche asymmetrische Verschlüsselungsverfahren wurde allerdings erst 1977 von R. L. Rivest, A. Shamir und L. M. Adleman erfunden. Es erhielt den Namen RSA und ist bis heute immer noch eins der bekanntesten und am häufigsten genutzten Verfahren. Andere bekannte Verfahren sind McEliece(1978), Rabin(1979), Chor-Rivest(1984) und Elgamal(1985).
-\subsection{Prinzip asymmetrischer Veschlüsselung}\label{asymm:prinzip}
+\subsection{Prinzip asymmetrischer Verschlüsselung}\label{asymm:prinzip}
 Asymmetrische Verschlüsselung ist das Gegenstück zu symmetrischer Verschlüsselung, denn hier gibt es nicht nur einen Schlüssel, der für Ver- und Entschlüsselung gebraucht wird, sondern jede Partei einer Kommunikation besitzt einen öffentlichen Schlüssel, welcher für jeden zugänglich ist, und einen privaten Schlüssel, welcher nur der jeweiligen Partei bekannt ist. Wenn jetzt zum Beispiel Partei A einer zweiten Partei B eine Nachricht schicken will, fragt Partei A bei Partei B nach ihrem öffentlichen Schlüssel. Die Übertragung dieses Schlüssels muss nicht sicher sein. Nach dem sie diesen erhalten hat verschlüsselt Partei A ihre Nachricht mit diesem öffentlichen Schlüssel über einen Verschlüsselungsalgrorithmus und erhält einen Geheimtext, den sie selber nicht mehr entschlüsseln kann. Dieser Geheimtext wird dann zu Partei B geschickt und diese kann dann mit hilfe ihres privaten Schlüssels und dem passenden Entschlüsselungsalgorithmus den Geheimtext entschlüsseln. Die Ver- und Entschlüsselungsalgorithmen, welche Partei A und B benutzen, benutzen eine Einwegfunktion mit Falltür(Definition in Kapitel \ref{oneway_trapdoor}), welche als Falltürinformation den jeweiligen privaten Schlüssel benutzt. \newline Folgende Grafik verdeutlicht dieses Schema:
 \begin{center}
 \includegraphics[scale=0.2]{asymm_shema.png} %ref link wikipedia
@@ -156,7 +146,7 @@ Asymmetrsiche Verschlüsselungsverfahren haben das Problem der Schlüsselverteil
 
 
 
-\section{Merkle-Hellman Kryptosystem}
+\section{Merkle-Hellman Kryptosystem}\label{mhk}
 Das asymmetrische Merkle-Hellman Kryptosystem wurde 1978 von Ralph Merkle und Martin Hellman erfunden und ist eins der ersten asymmetrischen Kryptosysteme. Es verwendet anders als andere Verfahren(z.B.: RSA) keine digitalen Signaturen. Das Verfahren basiert auf dem Rucksackproblem, welches in Kapitel \ref{rucksack} erläutert wird.
 
 %vergleiche bio merkle & hellman
@@ -167,12 +157,13 @@ Ralph Merkle wurde 1952 in Carlifornien geboren. Er schloss 1974 sein Informatik
 Da das Merkle-Hellman Kryptosystem auf dem Rucksackproblem basiert wird es in diesem Unterkapitel erläutert. \newline Das Rucksackproblem ist leicht mit einem Beispiel zu erklären: Man stelle sich vor man hat einen Rucksack, der nur mit einer bestimmten Menge an Gewicht voll gepackt werden kann. Des weiteren liegen neben dem Rucksack ein paar Gewichte, welche nicht gleich schwer sind und jeweils einen bestimmten Wert haben. Welche Gewichte kommen in den Rucksack so das die Gewichtsgrenze nicht überschritten wird und der maximale Wert(Die Summe aller Werte, der Gewichte im Rucksack) erzielt wird? \newline
 Hier ein Beispiel:
 \begin{center}
-\includegraphics[scale=0.7]{rucksackproblem.png} %ref link wikipedia
+\includegraphics[scale=0.2]{rucksackproblem.png} %ref link wikipedia
 \end{center}
 Der abgebildete Rucksack kann maximal 15kg tragen. Um ihn herum liegen 10 Gewichte aber welche werden eingepackt? Um dies heraus zu finden werden alle Möglichkeiten, inklusive keine und alle Gewichte im Rucksack, durch probiert und dann geschaut welche Möglichkeiten unter der Gewichtsgrenze liegen und den größten Wert erzielen. Für $n$ Gewichte gibt $2^{n}$ verschiedene Möglichkeiten. Für das Beispiel gibt es also $2^{10} = 1024$ Möglichkeiten. Das sind noch nicht allzu viele und lässt sich deshalb schnell berechnen. Hat man jetzt allerdings weit aus mehr Gewichte lässt sich das Problem nicht mehr effizient lösen. Es gibt eine Ausnahme, welche für das Merkle-Hellman Kryptosystem sehr wichtig ist, diese wird in den nächsten unter Kapiteln erklärt.
 
 %algorithmus
-\subsection{Schlüsselerzeugung}
+\subsection{Verfahren}
+\subsubsection{Schlüsselerzeugung}
 Bei der Schlüsselerzeugung wird zuerst der private Schlüssel generiert, dieser muss ein stark wachsender Vektor seien, dass spielt bei der Entschlüsselung eine entscheidene Rolle, und eine Länge von acht Elementen haben, da ein Buchstabe in Binärcode acht Bits hat. Ein solcher privater Schlüssel $S_p$ könnte folgender Maßen aussehen:
 \begin{center}
 $S_p=\{44,45,90,180,360,720,1440,2880\}$
@@ -191,7 +182,7 @@ Für unseres Beispiel ergibt sich dann der öffentliche Schlüssel:
 $S_{"o}=\{10065,4665,9330,2149,4298,8596,681,1362\}$
 \end{center}
 
-\subsection{Verschlüsselung}
+\subsubsection{Verschlüsselung}
 Bei der Verschlüsselung wird der Klartext $T_k$ erst in Binärcode umgewandelt. Für das Beispiel wählen wir Hallo als Klartext.
 \begin{center}
 %$T_k = \{\{0,1,0,0,1,0,0,0\},\{0,1,1,0,0,0,0,1\},\{0,1,1,0,1,1,0,0\},\{0,1,1,0,1,1,0,0\},\{0,1,1,0,1,1,1,1\}\}$
@@ -202,7 +193,7 @@ Für unser Beispiel:
 \begin{center}
 $T_g=\{18293,15357,26889,26889,28932\}$
 \end{center}
-\subsection{Entschlüsselung}
+\subsubsection{Entschlüsselung}
 Zum Entschlüsseln benötigt man $S_p,n,m$ und das modulare Inverse $m^{-1}$ von $m$ und $n$, welches mit dem erweiterten euklidischen Algorithmus berechnet wird.
 Für unser Beispiel $m^{-1} = 584$.
 Nun wird, um den Klartext zu erhalten, zu erst jedes Element $i$ von $T_g$ mit $m^{-1}$ multipliziert und mit Rest durch m Dividiert.
