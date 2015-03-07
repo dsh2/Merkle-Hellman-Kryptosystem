@@ -40,20 +40,20 @@ Diese Facharbeit entsteht im Rahmen einer Schulaufgabe im Fach Mathematik und be
 \section{Mathematische Grundlagen}
 
 \subsection{Restrechnung}
-Die Restrechnung ist den meisten vermutlich noch aus der Grundschule bekannt, denn bevor Rationale zahlen eingeführt wurden, war zum Beispiel: 123 geteilt durch 10 nicht etwa 12.3 sondern das Ergebnis lautete: 12 Rest 3. Allgemein ausgedrückt heißt es das bei einer Division zweier Zahlen a,b, mit $b \neq 0$, $a,b \in \mathbb{Z}$ ein Rest r entstehen kann. Eine mögliche Schreibweise dafür wäre: \newline
+Die Restrechnung ist den meisten vermutlich noch aus der Grundschule bekannt, denn bevor Rationale zahlen eingeführt wurden, war zum Beispiel: 123 geteilt durch 10 nicht etwa 12.3 sondern das Ergebnis lautete: 12 Rest 3. Allgemein ausgedrückt heißt es das bei einer Division zweier Zahlen $a,b$, mit $b \neq 0$, $a,b \in \mathbb{Z}$ ein Rest $r$ entstehen kann. Eine mögliche Schreibweise dafür wäre: \newline
 \begin{center}
 \[r = a \; mod \; b\]
 \end{center}
-Auf das obrige Beispiel bezogen würde man also 12 = 123 mod 10 schreiben. Das mod steht für modulo. \newline Bei Restrechnung geht es auch oft um Restklassen. Eine Restklasse besteht immer aus Zahlen welche geteilt durch eine Zahl b, mit $b \in \mathbb{Z}$ den selben Rest ergeben. So sind zum Beispiel die Zahlen 2; 5; 11; 38; 41; 86; 101 alle ein Teil der Restklasse modulo 3, denn sie alle ergeben bei der Division durch 3 den gleichen Rest. Im Zusammenhang mit Restklassen wird auch oft von Kongruenz geredet. Zwei zahlen a, b sind kongruent zueinander, wenn sie dividiert durch eine dritte Zahl c den selben Rest r überlassen. Die Schreibweise dafür ist: \newline
+Auf das obrige Beispiel bezogen würde man also $12 = 123 \; mod \; 10$ schreiben. Das $mod$ steht für modulo. \newline Bei Restrechnung geht es auch oft um Restklassen. Eine Restklasse besteht immer aus Zahlen welche geteilt durch eine Zahl $b$, mit $b \in \mathbb{Z}$ den selben Rest ergeben. So sind zum Beispiel die Zahlen 2; 5; 11; 38; 41; 86; 101 alle ein Teil der Restklasse modulo 3, denn sie alle ergeben bei der Division durch 3 den gleichen Rest. Im Zusammenhang mit Restklassen wird auch oft von Kongruenz geredet. Zwei zahlen $a, b$ sind kongruent zueinander, wenn sie dividiert durch eine dritte Zahl c den selben Rest r überlassen. Die Schreibweise dafür ist: \newline
  \begin{center}
-$a \equiv b$ mod c
+\[a \equiv b \; mod \; c\]
  \end{center}
-Ausgesprochen heißt das: a ist kongruent b modulo c. 
+Ausgesprochen heißt das: $a$ ist kongruent $b$ modulo $c$. 
 Das heißt also das alle Zahlen einer Restklasse Kongruent zueinander sind.
-Wenn der $ggT(a, b) = 1$, dann sind a und b Teilerfremd.
+Wenn der $ggT(a, b) = 1$, dann sind $a$ und $b$ Teilerfremd.
  
 \subsection{Euklidischer Algorithmus}
-Viele asymmetrische Verschlüsselungsverfahren müssen häufig den größten gemeinsamen Teiler oder kurz den ggT zweier oder mehrerer Zahlen errechnen und der euklidische Algorithmus ist nichts anderes als eine Methode um dies zu tun. Er erhielt seinen Namen von seinem Erfinder Euklid.\newline Um den ggT zweier ganzer Zahlen a, b mit $a > b$ zu bestimmen, wird zu erst c = a mod b berechnet. Dann wird der Wert von a in den von b geändert und der von b in den von c. Danach wird dieser Vorgang mit ''neuem'' a und b wiederholt solange bis c gleich 0 ist. Und dann ist der letzte von b angenommene Wert der ggT von a und b.
+Viele asymmetrische Verschlüsselungsverfahren müssen häufig den größten gemeinsamen Teiler oder kurz den ggT zweier oder mehrerer Zahlen errechnen und der euklidische Algorithmus ist nichts anderes als eine Methode um dies zu tun. Er erhielt seinen Namen von seinem Erfinder Euklid.\newline Um den ggT zweier ganzer Zahlen a, b mit $a > b$ zu bestimmen, wird zu erst $c = a \; mod \; b$ berechnet. Dann wird der Wert von a in den von b geändert und der von b in den von c. Danach wird dieser Vorgang mit ''neuem'' $a$ und $b$ wiederholt solange bis $c$ gleich 0 ist. Und dann ist der letzte von $b$ angenommene Wert der ggT von $a$ und $b$.
 
 \subsection{Erweiterter Euklidischer Algorithmus}
 Der erweiterte euklidische Algorithmus bestimmt zusätzlich zum ggT von zwei ganzen Zahlen a,b mit $b \neq 0$ noch zwei weitere ganze Zahlen s,t. Die Gleichung die dabei gelöst wird ist folgende: \newline
