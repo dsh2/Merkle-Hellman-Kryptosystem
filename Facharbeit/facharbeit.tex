@@ -38,7 +38,7 @@ Schuljahr 2014/15
 
 
 \vspace{2cm}
-\includegraphics[scale=0.4]{titlepicture.jpg} \\
+\includegraphics[scale=0.4,natwidth=640,natheight=360]{titlepicture.jpg} \\
 \vspace{2cm}
 \large
 Niklas Gögge\\
@@ -167,7 +167,7 @@ Symmetrische Verschlüsselungsverfahren gibt es schon deutlich länger als asymm
 \subsection{Prinzip symmetrischer Verschlüsselung}
 Das Prinzip hinter symmetrischer Verschlüsselung ist recht simpel. Es gibt nur einen Schlüssel für Ver- und Entschlüsselung, das bedeutet, dass alle Parteien, die an einer Kommunikation teilnehmen, den selben Schlüssel haben. Wenn jetzt Partei A einer zweiten Partei B eine Nachricht schicken will, wird diese Nachricht mit dem Schlüssel durch den Algrorithmus des jeweiligen Verfahrens verschlüsselt, dadurch erzeugt Partei A einen Geheimtext. Dieser wird nun an Partei B geschickt. Partei B kennt den zuvor ausgetauschten Schlüssel und kann nun mit ihm durch den passenden Entschlüsselungsalgorithmus den Geheimtext entschlüsseln und erhält die von Partei A verschlüsselte Nachricht. (\cite{delfs_knebl} S.11 - 12)\newline Folgende Grafik verdeutlicht dieses Schema:
 \begin{center}
-\includegraphics[scale=0.7]{symm_shema.png} %ref link wikipedia
+\includegraphics[scale=0.7,natwidth=629,natheight=225]{symm_shema.png} %ref link wikipedia
 \end{center}
 Abb. 1: Prinzip symmetrischer Verschlüsselung
 
@@ -187,7 +187,7 @@ Asymmetrische Verschlüsselung ist im Vergleich zu symmetrischer Verschlüsselun
 \subsection{Prinzip asymmetrischer Verschlüsselung}\label{asymm:prinzip}
 Asymmetrische Verschlüsselung ist das Gegenstück zu symmetrischer Verschlüsselung, denn hier gibt es nicht nur einen Schlüssel, der für Ver- und Entschlüsselung gebraucht wird, sondern jede Partei einer Kommunikation besitzt einen unterschiedlichen öffentlichen Schlüssel, welcher für jeden zugänglich ist, und einen privaten Schlüssel, welcher nur der jeweiligen Partei bekannt ist. Wenn jetzt zum Beispiel Partei A einer zweiten Partei B eine Nachricht schicken will, fragt Partei A bei Partei B nach ihrem öffentlichen Schlüssel. Die Übertragung dieses Schlüssels muss nicht sicher sein. Nach dem sie diesen erhalten hat, verschlüsselt Partei A ihre Nachricht mit diesem öffentlichen Schlüssel über einen Verschlüsselungsalgrorithmus und erhält einen Geheimtext, den sie selber nicht mehr entschlüsseln kann. Dieser Geheimtext wird dann zu Partei B geschickt und diese kann dann mit Hilfe ihres privaten Schlüssels und dem passenden Entschlüsselungsalgorithmus den Geheimtext entschlüsseln. Die Ver- und Entschlüsselungsalgorithmen, welche Partei A und B benutzen, benutzen eine Einwegfunktion mit Falltür (Definition in Kapitel \ref{oneway_trapdoor}), welche als Falltürinformation den jeweiligen privaten Schlüssel benutzt. (\cite{delfs_knebl} S.23 - 24) \newline Folgende Grafik verdeutlicht dieses Schema:
 \begin{center}
-\includegraphics[scale=0.7]{asymm_shema.png} %ref link wikipedia
+\includegraphics[scale=0.7,natwidth=622,natheight=222]{asymm_shema.png} %ref link wikipedia
 \end{center}
 Abb. 2: Prinzip asymmetrischer Verschlüsselung
 \subsection{Digitale Signaturen}\label{asymm:sign}
@@ -209,7 +209,7 @@ Ralph Merkle wurde 1952 in Carlifornien geboren. Er schloss 1974 sein Informatik
 Da das Merkle-Hellman-Kryptosystem auf dem Rucksackproblem basiert wird es in diesem Unterkapitel erläutert. \newline Das Rucksackproblem ist leicht mit einem Beispiel zu erklären: Stellen sie sich vor man hat einen Rucksack, der nur mit einer bestimmten Menge an Gewicht voll gepackt werden kann. Des Weiteren liegen neben dem Rucksack ein paar Gewichte, welche nicht gleich schwer sind und jeweils einen bestimmten Wert haben. Welche Gewichte kommen in den Rucksack, so dass die Gewichtsgrenze nicht überschritten wird und der maximale Wert (Die Summe aller Werte, der Gewichte im Rucksack) erzielt wird? \newline
 Hier ein Beispiel:
 \begin{center}
-\includegraphics[scale=0.1]{rucksackproblem.png} %ref link wikipedia
+\includegraphics[scale=0.1,natwidth=2000,natheight=1733]{rucksackproblem.png} %ref link wikipedia
 \end{center}
 Abb. 3: Rucksackproblem Beispiel
 Der abgebildete Rucksack kann maximal 15 kg tragen. Um ihn herum liegen 5 Gewichte mit den jeweiligen Werten in Dollar, aber welche werden eingepackt? Um dies herauszufinden werden alle Möglichkeiten, inklusive keine und alle Gewichte im Rucksack, durchprobiert. Dann wird geschaut, welche Möglichkeiten unter der Gewichtsgrenze liegen und den größten Wert erzielen. Für $n$ Gewichte gibt es $2^{n}$ verschiedene Möglichkeiten. Für das Beispiel gibt es also $2^{5} = 32$ Möglichkeiten. Das sind noch nicht viele und lässt sich deshalb schnell berechnen. Hat man jetzt allerdings weitaus mehr Gewichte, lässt sich das Problem nicht mehr effizient lösen. Es gibt eine Ausnahme, welche für das Merkle-Hellman-Kryptosystem sehr wichtig ist, diese wird in den nächsten Unterkapiteln erklärt. (\cite{knapsack})
