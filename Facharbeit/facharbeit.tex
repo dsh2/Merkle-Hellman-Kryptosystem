@@ -30,16 +30,12 @@ Schuljahr 2014/15
 \begin{titlepage}
 \begin{center}
 
-\LARGE Asymmetrische Verschlüsselungsverfahren am Beispiel vom Merkle-Hellman-Kryptosystem                
-
-
-
-
-
+\LARGE Asymmetrische Verschlüsselungsverfahren am Beispiel vom Merkle-Hellman-Kryptosystem
 
 \vspace{2cm}
 \includegraphics[scale=0.4,natwidth=640,natheight=360]{titlepicture.jpg} \\
 \vspace{2cm}
+
 \large
 Niklas Gögge\\
 Viktoriaschule Aachen\\
@@ -50,32 +46,57 @@ Schuljahr 2014/15 \\
 8. März 2015
 \end{center}
 \end{titlepage}
+
 \newpage
+
 \tableofcontents
+
 \newpage
 
 \section{Einleitung}
 Diese Facharbeit entsteht im Rahmen einer Schulaufgabe im Leistungskurs Mathematik und
 beschäftigt sich mit asymmetrischen Verschlüsselungsverfahren am Beispiel vom
-Merkle-Hellman-Kryptosystem (\cite{merklehellman_neer}). Ich habe dieses Thema gewählt, da ich sehr mathematisch und informationstechnisch interessiert bin und mein späteres
-Studium wahrscheinlich auch in eine dieser Richtungen verlaufen wird. Des
+Merkle-Hellman-Kryptosystem (\cite{merklehellman_neer}). Ich habe dieses Thema
+gewählt, da ich sehr mathematisch und informationstechnisch interessiert bin
+und mein späteres Studium wahrscheinlich auch in eine dieser Richtungen
+verlaufen wird. Des
 Weiteren sind Sicherheit und Geheimhaltung im heutigen Medienzeitalter ein sehr
 interessantes und vor allem wichtiges Thema, da ein sehr großer Teil der
 Kommunikation über Telefone beziehungsweise über das Internet läuft.
 
-Die Ziele dieser Arbeit sind, beim Leser ein grundsätzliches Verständnis über Verschlüsselung im Allgemeinen zu vermitteln und im Besonderen asymmetrische Verschlüsselung am Beispiel des Merkle-Hellman-Kryptosystems näher zu beleuchten.
+Die Ziele dieser Arbeit sind, beim Leser ein grundsätzliches Verständnis über
+Verschlüsselung im Allgemeinen zu vermitteln und im Besonderen asymmetrische
+Verschlüsselung am Beispiel des Merkle-Hellman-Kryptosystems näher zu
+beleuchten.
 
-Für das grundsätzliche Verständnis dienen die Kapitel \ref{math}-\ref{asymm}. Dabei werden zunächst die mathematischen Grundlagen, die für das Verständnis der Arbeit gebraucht werden, erläutert. Dazu gehören: Restrechnung, der euklidische Algorithmus, der erweiterte euklidische Algorithmus, Einwegfunktionen mit und ohne Falltür sowie stark wachsende Vektoren. Das darauf folgende Kapitel beschäftigt sich allgemein mit Verschlüsselung, ihre Ziele, Verschlüsselungsprotokolle und ihre Anwendungsbereiche. Die zwei folgenden Kapitel informieren über symmetrische und asymmetrische Verschlüsselung, ihre Prinzipien und deren Sicherheit. Kapitel \ref{mhk} erläutert, als Beispiel für ein asymmetrisches Verfahren, das Merkle-Hellman-Kryptosystem. Dazu gehören: eine kurz Biographie der Erfinder, das Rucksackproblem, das angewandte Verfahren an sich (Schlüsselerzeugung, Verschlüsselung, Entschlüsselung) und die Sicherheit des Verfahrens. Zum Schluss habe ich noch ein persönliches Fazit aus meiner
-Bearbeitung dieser Arbeit ziehen.
+Für das grundsätzliche Verständnis dienen die Kapitel \ref{math}-\ref{asymm}.
+Dabei werden zunächst die mathematischen Grundlagen, die für das Verständnis
+der Arbeit gebraucht werden, erläutert. Dazu gehören: Restrechnung, der
+euklidische Algorithmus, der erweiterte euklidische Algorithmus,
+Einwegfunktionen mit und ohne Falltür sowie stark wachsende Vektoren. Das
+darauf folgende Kapitel beschäftigt sich allgemein mit Verschlüsselung, ihre
+Ziele, Verschlüsselungsprotokolle und ihre Anwendungsbereiche. Die zwei
+folgenden Kapitel informieren über symmetrische und asymmetrische
+Verschlüsselung, ihre Prinzipien und deren Sicherheit. Kapitel \ref{mhk}
+erläutert, als Beispiel für ein asymmetrisches Verfahren, das
+Merkle-Hellman-Kryptosystem. Dazu gehören: eine kurz Biographie der Erfinder,
+das Rucksackproblem, das angewandte Verfahren an sich (Schlüsselerzeugung,
+Verschlüsselung, Entschlüsselung) und die Sicherheit des Verfahrens. Zum
+Schluss habe ich noch ein persönliches Fazit aus meiner Bearbeitung dieser
+Arbeit gezogen.
 
 Ergänzend habe ich im Rahmen dieser Arbeit
 das Merkle-Hellman-Kryptosystem in der Programmiersprache Java selber
-programmiert.  \newpage
+programmiert.
+
+\newpage
 
 \section{Mathematische Grundlagen}\label{math}
+
 Der Kern jedes Verschlüsselungssystems sind mathematische Grundlagen. Für den Umfang dieser Arbeit wird lediglich auf einige eingegangen. Dabei wird die Restrechnung, der euklidische Algorithmus und der erweiterte euklidische Algorithmus, die Einwegfunktionen sowie stark wachsende Vektoren beschrieben, um in den nachfolgenden Kapiteln darauf aufzubauen.
+
 \subsection{Restrechnung}
-Die Restrechnung ist den meisten vermutlich noch aus der Grundschule bekannt, denn bevor Rationale Zahlen eingeführt wurden, war zum Beispiel: 123 geteilt durch 10 nicht etwa 12.3, sondern das Ergebnis lautete: 12 Rest 3. Allgemein ausgedrückt heißt es, dass bei einer Division zweier Zahlen $a,b$, mit $b \neq 0$, $a,b \in \mathbb{Z}$ ein Rest $r$ entstehen kann. Eine mögliche Schreibweise dafür wäre: 
+Die Restrechnung ist den meisten vermutlich noch aus der Grundschule bekannt, denn bevor rationale Zahlen eingeführt wurden, war zum Beispiel: 123 geteilt durch 10 nicht etwa 12.3, sondern das Ergebnis lautete: 12 Rest 3. Allgemein ausgedrückt heißt es, dass bei einer Division zweier Zahlen $a,b$, mit $b \neq 0$, $a,b \in \mathbb{Z}$ ein Rest $r$ entstehen kann. Eine mögliche Schreibweise dafür wäre:
 \begin{center}
 $r = a \; mod \; b$
 \end{center}
@@ -114,8 +135,9 @@ $1 = (-3) \cdot 37 + 7 \cdot 16 (q=5)$\\
 $0 = 16 \cdot 37 - 37 \cdot 16$.\\
 Also ist $ggT(a,b) = 1 = (-3) \cdot 37 + 7 \cdot 16$.\grqq{} (\cite{exteuk} Beschreibung des Algorithmus)
 \end{quote}
-Die häufigste Anwendung dieses Algorithmus in der Verschlüsselung ist die Bestimmung von multiplikativen Inversen. Zwei ganze Zahlen $a, b$, haben multiplikative Inverse, wenn sie teilerfremd sind. 
+Die häufigste Anwendung dieses Algorithmus in der Verschlüsselung ist die Bestimmung von multiplikativen Inversen. Zwei ganze Zahlen $a, b$ haben multiplikative Inverse, wenn sie teilerfremd sind.
 Das Inverse zu $a$ also $a^{-1}$ ist $s$ und das Inverse zu $b$ also $b^{-1}$ ist $t$. (\cite{exteuk})
+
 \subsection{Einwegfunktionen}
 Eine Einwegfunktion ist eine Funktion welche leicht zu berechnen ist. Es ist also $y = f(x)$ schnell zu  berechnen, aber es ist nur sehr schwer bis unmöglich die Funktion umzukehren, also $x = f^{-1}(x)$ ist nicht effizient zu berechnen. Es wird angenommen, dass solche Funktionen existieren und es gibt auch einige Funktionen bei denen man annimmt, dass es sich um Einwegfunktionen handelt, allerdings ist dies nicht bewiesen. Einwegfunktionen werden vor allem in der asymmetrischen Verschlüsselung häufig angewendet, allerdings wird dort eine spezielle Art von Einwegfunktionen verwendet, die so genannten Einwegfunktionen mit Falltür. (\cite{oneway_lukas} 1.2 Einwegfunktionen)
 
@@ -152,7 +174,7 @@ In der Kryptographie gibt es vier Hauptziele (vgl. \cite{delfs_knebl} S. 2-3):
 
 \item \textit{Nichtabstreitbarkeit/Abstreitbarkeit.} Je nach Kontext sollte es für den Sender nicht die Möglichkeit geben, abzustreiten oder nicht abzustreiten, dass er die Nachricht gesendet hat.
 \end{itemize} % vergleiche itc buch s.2
-Die Vertraulichkeit wird erreicht in dem ein sicherer Verschlüsselungsalgorithmus benutzt wird. Ein Verschlüsselungsalgorithmus wird als sicher bezeichnet, wenn es nur sehr schwer bis unmöglich ist den Geheimtext ohne passenden Schlüssel in den Klartext umzuwandeln. Datenintegrität wird erreicht durch so genannte ''message authentification codes'' oder kurz MAC. Solche Codes werden durch einen Algorithmus (benutzt Einwegfunktion ohne Falltür) erzeugt, welcher dafür den Schlüssel und den Klartext benutzt. Das Erreichen von Authentizität und Nichtabstreitbarkeit wird bei asymmetrischen Verfahren durch digitale Signaturen (siehe Kapitel \ref{asymm:sign}) sichergestellt. Diese sind zu vergleichen mit einer Unterschrift auf einem Blatt Papier. Symmetrische Verfahren haben keine Möglichkeit zu signieren. Bei ihnen wird Authentizität und Nichtabstreitbarkeit durch den vorher ausgetauschten Schlüssel erreicht, denn nur wer den Schlüssel hat, kann eine verschlüsselte Nachricht schicken, welche der andere Entschlüsseln kann. 
+Die Vertraulichkeit wird erreicht in dem ein sicherer Verschlüsselungsalgorithmus benutzt wird. Ein Verschlüsselungsalgorithmus wird als sicher bezeichnet, wenn es nur sehr schwer bis unmöglich ist den Geheimtext ohne passenden Schlüssel in den Klartext umzuwandeln. Datenintegrität wird erreicht durch so genannte ''message authentification codes'' oder kurz MAC. Solche Codes werden durch einen Algorithmus (benutzt Einwegfunktion ohne Falltür) erzeugt, welcher dafür den Schlüssel und den Klartext benutzt. Das Erreichen von Authentizität und Nichtabstreitbarkeit wird bei asymmetrischen Verfahren durch digitale Signaturen (siehe Kapitel \ref{asymm:sign}) sichergestellt. Diese sind zu vergleichen mit einer Unterschrift auf einem Blatt Papier. Symmetrische Verfahren haben keine Möglichkeit zu signieren. Bei ihnen wird Authentizität und Nichtabstreitbarkeit durch den vorher ausgetauschten Schlüssel erreicht, denn nur wer den Schlüssel hat, kann eine verschlüsselte Nachricht schicken, welche der andere Entschlüsseln kann.
 
 \subsection{Verschlüsselungsprotokolle}
 Wenn alle Bestandteile eines Verschlüsselungsverfahren (Ver- /Entschlüsselung und Methoden zum Erreichen von Datenintegrität, Authentizität, Nichtabstreitbarkeit) zusammen kommen, nennt man die Abfolge dieser einzelnen Bestandteile ein Verschlüsselungsprotokoll. (\cite{delfs_knebl} S.5)
@@ -215,7 +237,7 @@ Abb. 3: Rucksackproblem Beispiel
 Der abgebildete Rucksack kann maximal 15 kg tragen. Um ihn herum liegen 5 Gewichte mit den jeweiligen Werten in Dollar, aber welche werden eingepackt? Um dies herauszufinden werden alle Möglichkeiten, inklusive keine und alle Gewichte im Rucksack, durchprobiert. Dann wird geschaut, welche Möglichkeiten unter der Gewichtsgrenze liegen und den größten Wert erzielen. Für $n$ Gewichte gibt es $2^{n}$ verschiedene Möglichkeiten. Für das Beispiel gibt es also $2^{5} = 32$ Möglichkeiten. Das sind noch nicht viele und lässt sich deshalb schnell berechnen. Hat man jetzt allerdings weitaus mehr Gewichte, lässt sich das Problem nicht mehr effizient lösen. Es gibt eine Ausnahme, welche für das Merkle-Hellman-Kryptosystem sehr wichtig ist, diese wird in den nächsten Unterkapiteln erklärt. (\cite{knapsack})
 
 %algorithmus
-\subsection{Verfahren} 
+\subsection{Verfahren}
 Die folgenden Unterkapitel erklären die Schlüsselerzeugung, die Verschlüsselung und Entschlüsselung des Merkle-Hellman-Kryptosystems. (\cite{merklehellman_neer})
 \subsubsection{Schlüsselerzeugung}
 Bei der Schlüsselerzeugung wird zuerst der private Schlüssel generiert und dieser muss ein stark wachsender Vektor sein. Das spielt bei der Entschlüsselung eine entscheidene Rolle. Außerdem muss er eine Länge von acht Elementen haben, da ein Buchstabe im Binärcode acht Bits hat. Ein solcher privater Schlüssel $S_p$ könnte folgendermaßen aussehen:
@@ -279,17 +301,17 @@ T_k = \{01101000, 01100001, 01101100, 01101100, 01101111\}
 Zur generellen Sicherheit des Verfahrens sollte man sagen, dass solange $m, n, m^{-1}, S_p$ nicht bekannt sind, es schwer sein sollte das System zu kompromittieren. Allerdings hat Adi Shamir, einer der Erfinder des RSA-Vefahrens, es 1982 trotzdem geschafft. Shamirs Methode, zum kompromittieren des Verfahrens ist sehr komplex und würde den Rahmen dieser Facharbeit definitiv sprengen. Des Weiteren beinhaltet das Merkle-Hellman-Kryptosystem keine Methoden zum Signieren, was mit Hinblick auf die Sicherheit ein großes Problem ist, denn dadurch sind zwei Ziele der Verschlüsselung (Authentizität und Nichtabstreitbarkeit) nicht erreicht. %merkle-hellman-knapsack-based-public-key-method.pdf
 
 \newpage
-\section{Fazit} 
-Die Ziele dieser Arbeit sind, den Lesern ein grundsätzliches Verständnis über Verschlüsselung zu vermitteln und im Besonderen asymmetrische Verschlüsselungsverfahren am Beispiel des Merkle-Hellman-Kryptosystem zu verstehen und 
+\section{Fazit}
+Die Ziele dieser Arbeit sind, den Lesern ein grundsätzliches Verständnis über Verschlüsselung zu vermitteln und im Besonderen asymmetrische Verschlüsselungsverfahren am Beispiel des Merkle-Hellman-Kryptosystem zu verstehen und
 auch wenn das Merkle-Hellman-Kryptosystem nicht sicher ist, ist es dennoch sehr interessant, da es eins der ersten asymmetrischen Verfahren ist und das Rucksackproblem auch in anderen Verfahren zum Einsatz kommt, weil es an sich gut für die Kryptographie geeignet ist. Die mir bis jetzt bekannten Leser der Arbeit haben mir mitgeteilt, dass sie nun das grundsätzliche Verständnis erlangt haben.
 
-Was mich angeht, hat mich die Bearbeitung dieses Themas weiter gebracht, da ich viel über das ganze Thema recherchieren musste und somit viel gelernt habe. Außerdem hat es mich in meinen Plänen ein Studium, in die mathematische Richtung zu wählen nur noch bestärkt. 
+Was mich angeht, hat mich die Bearbeitung dieses Themas weiter gebracht, da ich viel über das ganze Thema recherchieren musste und somit viel gelernt habe. Außerdem hat es mich in meinen Plänen ein Studium, in die mathematische Richtung zu wählen nur noch bestärkt.
 \newpage
 
 \begin{flushleft}
 \bibliography{facharbeit}
 \end{flushleft}
-\large 
+\large
 \textbf{Abbildungsverzeichnis} \newline
 \normalsize
 \begin{flushleft}
@@ -305,6 +327,6 @@ Insbesondere versichere ich, dass ich alle wörtlichen und sinngemäßen Überna
 \begin{tabular}{lp{2em}l}
  \hspace{5cm}   && \hspace{4cm} \\\cline{1-1}\cline{3-3}
  Ort, Datum     && Unterschrift
-\end{tabular} 
+\end{tabular}
 \end{document}
 
